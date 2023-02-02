@@ -26,14 +26,14 @@
     <h5 class="title-text">There are many websites that provide Leetcode <br>solutions, so what makes Elite Solutions stand out? <br>We will provide you with some salient features that <br>make Elite Solutions stand out!</h5>
     </td>
   </div>
-  <div style="position:relative;top:-200px;float:right;right:60%">
+  <div style="position:relative;top:-200px;float:right;right:55%;text-align:center">
     <table>
       <tr>
-        <td style="width:70px;height:50px">
-          <p style="color:white;font-weight:bold;font-size:30px">Learn</p>
+        <td style="width:170px;height:50px">
+          <p style="color:white;font-weight:bold;font-size:40px">Learn</p>
         </td>
         <td>
-            <div id="app" style="color:white;"></div>
+            <div id="app" style="color:white;font-weight:bold;font-size:25px;margin-top:15px"></div>
         </td>
       </tr>
     </table>
