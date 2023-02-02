@@ -1,0 +1,436 @@
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+  background-color: #1C1A1A;
+}
+.Line1{
+  position: absolute;
+width: 570px;
+height: 0px;
+left: 300px;
+top: 740px;
+
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #6DA9A6;
+border: 3px solid #6DA9A6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Line2{
+  position: absolute;
+width: 415.02px;
+height: 0px;
+left: 90px;
+top: 535.01px;
+
+border: 3px solid #6DA9A6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+transform: rotate(-90deg);
+}
+
+.Line3{
+  position: absolute;
+width: 570px;
+height: 0px;
+right: 297px;
+top: 1338px;
+
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #6DA9A6;
+border: 3px solid #6DA9A6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Line4{
+  position: absolute;
+width: 415.02px;
+height: 0px;
+right: 90px;
+top: 1133.01px;
+
+border: 3px solid #6DA9A6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+transform: rotate(-90deg);
+}
+
+.Line5{
+  position: absolute;
+width: 570px;
+height: 0px;
+right: 483px;
+top: 1958px;
+
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #6DA9A6;
+border: 3px solid #6DA9A6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Line6{
+  position: absolute;
+width: 415.02px;
+height: 0px;
+left: 90px;
+top: 1750.01px;
+
+border: 3px solid #6DA9A6;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+transform: rotate(-90deg);
+}
+.Ellipse5{
+  border-radius: 100%;
+  text-overflow: ellipsis;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  left: 796.19px;
+  top: 1066px;
+
+  background: #6462E2;
+  transform: rotate(21.71deg);
+}
+.Ellipse6{
+  border-radius: 100%;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 899.8px;
+  top: 913px;
+
+  background: #6462E2;
+  transform: rotate(21.71deg);
+}
+
+.Ellipse4{
+  border-radius: 100%;
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 1104.59px;
+  top: 848px;
+
+  background: #6462E2;
+  transform: rotate(21.71deg);
+}
+.Shapes{
+  position: relative;
+  top:-1120px;
+  margin-bottom: 300px;
+}
+.Ellipse3{
+  border-radius: 100%;
+  position: absolute;
+width: 180px;
+height: 180px;
+left: 983.19px;
+top: 966px;
+
+background: #6462E2;
+transform: rotate(21.71deg);
+}
+.Ellipse2{
+  border-radius: 100%;
+  position: absolute;
+width: 40px;
+height: 40px;
+left: 982.7px;
+top: 1223px;
+
+background: #6462E2;
+transform: rotate(21.71deg);
+}
+
+.Ellipse1{
+  border-radius: 100%;
+  position: absolute;
+width: 80px;
+height: 80px;
+left: 1159.59px;
+top: 1130px;
+
+background: #6462E2;
+transform: rotate(21.71deg);
+}
+/*---------- Nav bar css ---------------*/
+  *{
+      box-sizing: border-box;
+  }
+  .nav-title img{
+      max-width:10%;
+      max-height:25px;
+  } 
+  
+  a{
+      text-decoration: none;
+      color: white;
+  }
+  .nav {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      height: 50px;
+      width: 100%;
+      background-color: #6462E2;
+      /* margin: 5px auto 5px auto ; */
+
+      /*border-radius: 20px;*/
+  }
+  
+  .nav > .nav-header {
+      display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+      display: inline-block;
+      font-size: 22px;
+      color: #fff;
+      padding: 10px 10px 10px 10px;
+  }
+  
+  .nav > .nav-btn {
+      display: none;
+      
+  }
+  
+  .nav > .nav-links {
+      display: inline;
+      float: right;
+      font-size: 18px;
+  }
+  
+  .nav > .nav-links > a {
+      display: inline-block;
+      padding: 13px 10px 13px 10px;
+      text-decoration: none;
+      color: #efefef;
+  }
+  
+  .nav > .nav-links > a:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav > #nav-check {
+      display: none;
+  }
+  
+  @media (max-width:600px) {
+      .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      }
+      .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+      }
+      .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+      }
+      .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+      }
+      .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+      }
+      .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+      }
+      .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+      }
+      .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+      }
+  }
+/*---------- Nav bar css ---------------*/
+/********** Title ***************/
+#title h1{
+  font-family: 'Montserrat';
+  font-style: normal;
+  letter-spacing: 0.13em;
+  color: #E1E1E1;
+  text-align: left;
+  padding-left: 4%;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 98px;
+  padding-top: 50px;
+}
+#title p{
+  font-family: 'Montserrat';
+  font-style: normal;
+  letter-spacing: 0.13em;
+  color: #E1E1E1;
+  text-align: left;
+  padding-left: 4%;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 37px;
+  padding-top: 10px;
+}
+#colored{
+  color:#6462E2;
+}
+#title h3{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  letter-spacing: 0.13em;
+  color: #6DA9A6;
+  text-align: left;
+  padding-left: 4%;
+}
+#title h5{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  color: #FFFFFF;
+  text-align: left;
+  padding-left: 4%;
+  margin-bottom: 20%;
+}
+.pos-button{
+  text-align: left;
+  padding: 25px 0 0 4%;
+  
+}
+.btn {
+  display: inline-block;
+  padding: 20px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #000000;
+  background-color: #EBC7E6;
+  border: none;
+  border-radius: 15px;
+  box-shadow: -7px 7px #999;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.13em;
+}
+
+.btn:hover {background-color: #deb0d8}
+
+.btn:active {
+  background-color: #b376aa;
+  box-shadow: 0 0px #666;
+  transform: translateY(4px);
+  transform: translateX(-3px);
+}
+
+/* ******************Card css***************** */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
+
+.card {
+max-width: 40%;
+height: auto;
+border: 1px solid #e6e6e6;
+border-radius: 30px;  
+
+}
+.card .btn{
+  margin:5% 0 5% 10%;
+}
+
+.card-image {
+position: relative;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+height:162px;
+border-radius: 30px;
+}
+
+.aspect-ratio-container {
+position: relative;
+height: 0;
+padding-top: calc(3 / 4 * 100%);
+}
+
+.aspect-ratio-item {
+position: absolute;
+left: 0;
+top: 0;
+width: 100% ;
+height: 100% ;
+
+}
+.pos-left{
+  text-align: left;
+padding:25px 0 0 4%;
+}
+.pos-right{
+  
+  padding:25px 4% 0 0;
+  position: absolute;
+  left: 60%;
+  top: 60%;
+}
+#Card1{
+  right: 60%;
+  top: 120%;
+}
+#Card2{
+
+  left: 60%;
+  top: 180%;
+
+}
+/* *****************cards content************* */
+.card h4{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0.13em;
+  color: #6DA9A6;
+  top: 1%;
+  left:5%;
+  position: absolute;
+}
+.card p{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  position: absolute;
+  left:5%;
+  top:6%;
+}
+
+.hidden{
+  opacity: 0;
+  transition: all 3s;
+}
+
+.show{
+  opacity: 1;
+}

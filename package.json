@@ -10,5 +10,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "aos": "^3.0.0-beta.6",
+        "typewriter-effect": "^2.19.0"
     }
 }
