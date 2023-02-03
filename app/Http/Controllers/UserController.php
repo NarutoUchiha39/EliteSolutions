@@ -10,4 +10,9 @@ class UserController extends Controller
     {
         return view('welcome');
     }
+
+    public function Solutions(){
+        return view('solutions');
+    }
 }
+

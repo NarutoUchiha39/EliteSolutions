@@ -55,7 +55,7 @@ transform: rotate(-90deg);
 width: 100vh;
 height: 0px;
 right: -45vh;
-top:149vh;
+top:139vh;
 
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #6DA9A6;
 border: 3px solid #6DA9A6;
@@ -67,7 +67,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 width: 70vh;
 height: 0px;
 left: 10vh;
-top: 113vh;
+top: 105vh;
 
 border: 3px solid #6DA9A6;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
