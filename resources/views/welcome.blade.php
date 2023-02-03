@@ -22,9 +22,10 @@
 
  
   <div data-aos="fade-up-right" style="margin-bottom:90px">
+    <img class="img" src="{{asset('/Assets/images/coding.gif')}}"/>
     <h3 class="title-text">Why use Elite Solutions?</h3>
     <h5 class="title-text">There are many websites that provide Leetcode <br>solutions, so what makes Elite Solutions stand out? <br>We will provide you with some salient features that <br>make Elite Solutions stand out!</h5>
-    </td>
+
   </div>
   <br>
 <br>

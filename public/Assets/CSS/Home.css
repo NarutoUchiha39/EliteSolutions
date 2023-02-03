@@ -4,7 +4,7 @@ body {
   background-color: #1C1A1A;
 }
 .Line1{
-  
+  z-index: -1;
   position:relative;
 width: 90vh;
 height: 0px;
@@ -16,6 +16,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .Line2{
+  z-index: -1;
   position: relative;
 width: 65vh;
 height: 0px;
@@ -28,6 +29,7 @@ transform: rotate(-90deg);
 }
 
 .Line3{
+  z-index: -1;
   position: relative;
 width: 71vh;
 height: 0px;
@@ -40,6 +42,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .Line4{
+  z-index: -1;
   position: relative;
 width: 72vh;
 height: 0px;
@@ -174,7 +177,9 @@ transform: rotate(21.71deg);
 
       /*border-radius: 20px;*/
   }
-  
+  .img{
+    float: right;
+  }
   .nav > .nav-header {
       display: inline;
   }
