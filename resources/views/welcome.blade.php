@@ -60,7 +60,7 @@
      
         <div class="aspect-ratio-item pos-left"  data-aos="fade-left">
             <div class="card">
-                <img class="card-image" src="{{asset("/Assets/images/bgc1.png")}}"/>
+                <img class="card-image" src="{{asset("/Assets/images/bgc2.jpg")}}"/>
                 <h4>Requesting Problems</h4>
                 <p>Stuck with a problem that is not on our<br>website? Just send us your problem and our<br>team will provide you with a solution!</p>
                 <button class="btn">Request<br>Problem=></button>
@@ -71,7 +71,7 @@
 
         <div class="aspect-ratio-item pos-right" data-aos="fade-right">
             <div class="card">
-                <img class="card-image" src="{{asset("/Assets/images/bgc1.png")}}"/>
+                <img class="card-image" src="{{asset("/Assets/images/bgc2.jpg")}}"/>
                 <h4>User Satisfaction</h4>
                 <p>We are constantly on lookout for<br>complains and suggestions. Feel free to<br>reach us!</p>
                 <button class="btn">Contact Us =></button>
@@ -82,7 +82,7 @@
         
         <div class="aspect-ratio-item pos-left" id="Card1" data-aos="fade-left">
             <div class="card" >
-                <img class="card-image" src="{{asset("/Assets/images/bgc1.png")}}"/>
+                <img class="card-image" src="{{asset("/Assets/images/bcg3.jpg")}}"/>
                 <h4>Post your own solution</h4>
                 <p>Think your solution is more optimized<br>than ours? Feel free to send your solution<br>and it may be featured on our website!</p>
                 <button class="btn">Post your<br>solution > =></button>
@@ -92,7 +92,7 @@
         <div class="Line6"></div>
         <div class="aspect-ratio-item pos-right" id="Card2" data-aos="fade-right">
             <div class="card">
-                <img class="card-image" src="{{asset("/Assets/images/bgc1.png")}}"/>
+                <img class="card-image" src="{{asset("/Assets/images/bcg3.jpg")}}"/>
                 <h4>Optimized Solutions</h4>
                 <p>With our solutions you will be rest assured<br>that you will be undetrstanding the most<br>optimal approach to the various problems.</p>
                 <button class="btn">Solutions =></button>
