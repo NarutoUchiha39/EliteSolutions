@@ -4,6 +4,7 @@ body {
   background-color: #1C1A1A;
 }
 .Line1{
+  
   position:relative;
 width: 90vh;
 height: 0px;
@@ -51,6 +52,7 @@ transform: rotate(-90deg);
 }
 
 .Line5{
+  z-index: -1;
   position: relative;
 width: 100vh;
 height: 0px;
@@ -63,11 +65,12 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .Line6{
+  z-index: -1;
   position: relative;
 width: 70vh;
 height: 0px;
 left: 10vh;
-top: 105vh;
+top: 103vh;
 
 border: 3px solid #6DA9A6;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -345,6 +348,7 @@ transform: rotate(21.71deg);
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
 
 .card {
+  background-color: #1C1A1A;
 max-width: 40%;
 height: auto;
 border: 1px solid #e6e6e6;
