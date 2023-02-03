@@ -26,27 +26,40 @@
     <h5 class="title-text">There are many websites that provide Leetcode <br>solutions, so what makes Elite Solutions stand out? <br>We will provide you with some salient features that <br>make Elite Solutions stand out!</h5>
     </td>
   </div>
-  <div style="position:relative;top:-200px;float:right;right:55%;text-align:center">
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div style="position:relative;top:-200px;float:right;right:40%;text-align:center;">
     <table>
       <tr>
         <td style="width:170px;height:50px">
           <p style="color:white;font-weight:bold;font-size:40px">Learn</p>
         </td>
         <td>
-            <div id="app" style="color:white;font-weight:bold;font-size:25px;margin-top:15px"></div>
+          <div id="app" style="color:white;font-weight:bold;font-size:40px;margin-top:10px"></div>
         </td>
       </tr>
     </table>
 </div>
-  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
       
 </section>
     <section id="features">
 
     <div class="aspect-ratio-container">
      
-        <div class="aspect-ratio-item pos-left">
-            <div class="card" data-aos="fade-left">
+        <div class="aspect-ratio-item pos-left"  data-aos="fade-left">
+            <div class="card">
                 <img class="card-image" src="{{asset("/Assets/images/bgc1.png")}}"/>
                 <h4>Requesting Problems</h4>
                 <p>Stuck with a problem that is not on our<br>website? Just send us your problem and our<br>team will provide you with a solution!</p>
@@ -93,21 +106,12 @@
     </script>
     <script>
       var app = document.getElementById('app');
-      console.log(app)
       var typewriter = new Typewriter(app, {
         loop: true,
-        delay: 75,
+        delay: 275,
       });
 
-      typewriter
-        .pauseFor(2500)
-        .typeString('A simple yet powerful native javascript')
-        .pauseFor(300)
-        .deleteChars(10)
-        .typeString('<strong>JS</strong> plugin for a cool typewriter effect and ')
-        .typeString('<strong>only <span style="color: #27ae60;">5kb</span> Gzipped!</strong>')
-        .pauseFor(1000)
-        .start();
+      typewriter.typeString("Linked List").deleteAll().typeString("Graphs").deleteAll().typeString("Trees").deleteAll().typeString("Arrays").deleteAll().typeString("Data Structures").start()
     </script>
   
 
