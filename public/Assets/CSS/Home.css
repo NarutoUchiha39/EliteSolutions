@@ -5,10 +5,10 @@ body {
 }
 .Line1{
   position: absolute;
-width: 570px;
+width: 39%;
 height: 0px;
-left: 300px;
-top: 740px;
+left: 22%;
+top: 74%;
 
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #6DA9A6;
 border: 3px solid #6DA9A6;
@@ -17,10 +17,10 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .Line2{
   position: absolute;
-width: 415.02px;
+width: 31%;
 height: 0px;
-left: 90px;
-top: 535.01px;
+left: 6.5%;
+top: 53%;
 
 border: 3px solid #6DA9A6;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -29,10 +29,10 @@ transform: rotate(-90deg);
 
 .Line3{
   position: absolute;
-width: 570px;
+width: 36%;
 height: 0px;
-right: 297px;
-top: 1338px;
+right: 24%;
+top: 135.5%;
 
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #6DA9A6;
 border: 3px solid #6DA9A6;
@@ -41,10 +41,10 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .Line4{
   position: absolute;
-width: 415.02px;
+width: 34%;
 height: 0px;
-right: 90px;
-top: 1133.01px;
+right: 7%;
+top: 113%;
 
 border: 3px solid #6DA9A6;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -65,7 +65,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .Line6{
   position: absolute;
-width: 415.02px;
+width: 36%;
 height: 0px;
 left: 90px;
 top: 1750.01px;
