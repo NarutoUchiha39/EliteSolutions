@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UserController;
+Route::get('/', [UserController::class,'Home']);
 
-Route::get('/', [UserController::class,'show']);
-Route::get('/solutions',[UserController::class,'Solutions']);
+Route::get('/signup',[UserAuth::class,'Register']);
+Route::get('/login',[UserAuth::class,'Login']);

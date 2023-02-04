@@ -26,8 +26,8 @@
         <a href="solutions.php" target="_blank">Solutions</a>
         <a href="request_problem.php" target="_blank">Request Problems</a>
         <a href="contact_us.php">Contact us</a>
-        <a href="https://codepen.io/jo_Geek/" target="_blank">Login</a>
-        <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">Register</a>
+        <a href="/login" >Login</a>
+        <a href="/signup" >Register</a>
     </div>
 </div>
   

@@ -6,7 +6,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function show()
+    public function Home()
     {
         return view('welcome');
     }
