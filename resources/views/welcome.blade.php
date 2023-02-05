@@ -1,7 +1,7 @@
 @extends('Layouts.Master')
 @section('content')
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-
+<link rel="stylesheet" href="{{asset('/Assets/CSS/Home.css')}}">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <section id="title">
   <h1 class="title-text">Your one stop solution <br>
@@ -20,7 +20,6 @@
   <div  class="Ellipse1"></div>
   </div>
 
- 
   <div data-aos="fade-up-right" style="margin-bottom:90px">
     <img class="img" src="{{asset('/Assets/images/coding.gif')}}"/>
     <h3 class="title-text">Why use Elite Solutions?</h3>

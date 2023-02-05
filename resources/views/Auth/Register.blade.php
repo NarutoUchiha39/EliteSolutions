@@ -1,10 +1,22 @@
 @extends('Layouts.Master')
 
 @section('content')
-<link rel="stylesheet" href="{{asset('/Assets/CSS/Auth.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="{{asset('/Assets/CSS/Auth.css')}}">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                 <li><x-alert/></li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
     <div class="container">
    
         <input type="checkbox" id="flip">
@@ -30,7 +42,7 @@
             <div class="signup-form" >
              
               <div class="title">Signup</div>
-            <form action="" method="post">
+            <form action="{{route('UserAuth')}}" method="post">
               @csrf
                 <div class="input-boxes">
                   <div class="input-box">

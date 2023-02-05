@@ -2,6 +2,7 @@
 <html lang="en">
   <html lang="en">
     <head>
+      <link rel="stylesheet" href="{{asset('Assets/CSS/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/Assets/CSS/Home.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +13,7 @@
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
         <div class="nav-title">
-            <a href="index.php" >Elite Solutions</a>
+            <a href="/" >Elite Solutions</a>
         </div>
     </div>
     <div class="nav-btn">
@@ -30,7 +31,7 @@
         <a href="/signup" >Register</a>
     </div>
 </div>
-  
+
   @yield('content')
 </body>
 </html>

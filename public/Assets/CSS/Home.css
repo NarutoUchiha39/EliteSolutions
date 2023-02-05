@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
 body {
   margin: 0px;
   font-family: 'segoe ui';
@@ -350,7 +351,7 @@ transform: rotate(21.71deg);
 }
 
 /* ******************Card css***************** */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
+
 
 .card {
   background-color: #1C1A1A;
