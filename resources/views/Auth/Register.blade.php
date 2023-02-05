@@ -12,7 +12,7 @@
     <div class="alert alert-danger">
           <ul>
               @foreach ($errors->all() as $error)
-                 <li><x-alert/></li>
+                  <script>alert(`{{$error}}`)</script>
               @endforeach
           </ul>
       </div>
