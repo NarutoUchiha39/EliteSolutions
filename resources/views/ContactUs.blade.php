@@ -26,8 +26,8 @@
             <div class="contact-form">
                 <span class="circle one"></span>
                 <span class="circle two"></span>
-                <form action="">
-                    
+                <form action="{{route('Mail')}}" method="post">
+                    @csrf
                     <h3 class="title">Contact Us</h3>
                     <div class="input-container">
 
