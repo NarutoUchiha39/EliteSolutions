@@ -14,5 +14,9 @@ class UserController extends Controller
     public function Solutions(){
         return view('solutions');
     }
+
+    public function ContactUs(){
+        return view('ContactUs');
+    }
 }
 

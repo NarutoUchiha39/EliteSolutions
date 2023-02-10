@@ -66,6 +66,9 @@
                 <button class="btn">Request<br>Problem=></button>
             </div>
         </div>
+        <div class="requestProblemsText" style="position:relative;float:right;text-align:right">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum libero quos neque nostrum tempore non dignissimos quidem cumque, enim, nemo ipsum, quis sit nesciunt? Qui iste illo corrupti dolor ratione!
+        </div>
         <div class="Line1"></div>
         <div class="Line2"></div>
 
