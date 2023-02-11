@@ -9,41 +9,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
   </head>
-  <div class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-        <div class="nav-title">
-            <a href="/" >Elite Solutions</a>
-        </div>
-    </div>
-    <div class="nav-btn">
-        <label for="nav-check">
-        <span>
-            
-        </span>
-        <span></span>
-        <span></span>
-        </label>
-    </div>
-    <div class="nav-links">
-        <a href="solutions.php" target="_blank">Solutions</a>
-        <a href="request_problem.php" target="_blank">Request Problems</a>
-        <div class="ContactUs"></div>
-        <a>Contact us</a><i class="fa-solid fa-caret-down" style="color:white;"></i>
-        
+  <div class="menu__bar">
+    <a class="logo" href="/"  style="text-decoration:none;position: relative;margin-top:15px">Elite Solutions</a>
+    <ul>
+        <li>
+            <a href="#">Solutions</a>
+        </li>
+        <li>
+            <a href="">Contact us <i class="fa-solid fa-caret-down"></i></a>
+            <div class="drop__down" >
+                <ul>
+                    <li>
+                        <a href="" style="margin-bottom:40px;">Send solution</a>
+                    </li>
+                    <li>
+                        <a href="">Request problems</a>
+                    </li>
+                    <li>
+                        <a href="/ContactUs">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         @if (Session::has('loginId'))
             <form action="{{route('Logout')}}" method="post">
                 @csrf
-             <input type="submit" value="Logout" class="inp">
+            <input type="submit" value="Logout" class="inp">
             </form>
         @else
-            <a href="/login" >Login</a>
-            <a href="/signup" >Register</a>
+            <li>
+                <a href="/login">Login</a>
+            </li>
+            <li>
+                <a href="/signup" >register</a>
+            </li>
         @endif
-       
         
-    </div>
-</div>
+    </ul>
+  </div>
+   
+    
 
   @yield('content')
 </body>
