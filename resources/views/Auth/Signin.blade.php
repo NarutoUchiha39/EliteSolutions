@@ -4,7 +4,15 @@
 <link rel="stylesheet" href="{{asset('/Assets/CSS/Auth.css')}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <script>alert(`{{$error}}`)</script>
+              @endforeach
+          </ul>
+      </div>
+    @endif
 <div class="container">
    
     <input type="checkbox" id="flip">
@@ -24,8 +32,8 @@
         <div class="signup-form" >
          
           <div class="title">Log in</div>
-          <form >
-  
+          <form action="{{route('Login')}}" method="post">
+            @csrf
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>

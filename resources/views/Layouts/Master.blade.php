@@ -18,7 +18,9 @@
     </div>
     <div class="nav-btn">
         <label for="nav-check">
-        <span></span>
+        <span>
+            
+        </span>
         <span></span>
         <span></span>
         </label>
@@ -26,9 +28,19 @@
     <div class="nav-links">
         <a href="solutions.php" target="_blank">Solutions</a>
         <a href="request_problem.php" target="_blank">Request Problems</a>
-        <a href="/ContactUs">Contact us</a>
-        <a href="/login" >Login</a>
-        <a href="/signup" >Register</a>
+        <a>Contact us</a><i class="fa-solid fa-caret-down" style="color:white;"></i>
+        
+        @if (Session::has('loginId'))
+            <form action="{{route('Logout')}}" method="post">
+                @csrf
+             <input type="submit" value="Logout" class="inp">
+            </form>
+        @else
+            <a href="/login" >Login</a>
+            <a href="/signup" >Register</a>
+        @endif
+       
+        
     </div>
 </div>
 

@@ -203,14 +203,22 @@ transform: rotate(21.71deg);
       font-size: 18px;
   }
   
-  .nav > .nav-links > a {
+  .nav > .nav-links > a,.nav>.nav-links>form{
       display: inline-block;
       padding: 13px 10px 13px 10px;
       text-decoration: none;
       color: #efefef;
   }
-  
-  .nav > .nav-links > a:hover {
+  .nav>.nav-links>form>input{
+    
+    background-color: #6462E2;
+    border: 0px;
+    font-size:18px;
+    color: #efefef;
+    outline: none;
+    cursor: pointer;
+  }
+  .nav > .nav-links > a:hover{
       background-color: rgba(0, 0, 0, 0.3);
   }
   
