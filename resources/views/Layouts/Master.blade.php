@@ -28,6 +28,7 @@
     <div class="nav-links">
         <a href="solutions.php" target="_blank">Solutions</a>
         <a href="request_problem.php" target="_blank">Request Problems</a>
+        <div class="ContactUs"></div>
         <a>Contact us</a><i class="fa-solid fa-caret-down" style="color:white;"></i>
         
         @if (Session::has('loginId'))
