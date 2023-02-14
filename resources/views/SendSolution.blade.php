@@ -72,9 +72,9 @@
     }
     
     let init=()=>{
-        setInterval(convert, 2000);
+        setInterval(convert, 10000);
     }
-   init()
+  
     
 </script>
 

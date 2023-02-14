@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
 .code{
     display: grid;
     grid-template-columns: 50% 1% 49%;
@@ -6,7 +7,7 @@
     
 }
 textarea{
-    
+    border-radius: 10px;
     border: none;
     overflow: auto;
     outline: none;
@@ -20,7 +21,7 @@ textarea{
 }
 .title1{
     position: relative;
-    top: 7vh;
+    top: 9vh;
     height: 90px;
 }
 .title-text{
@@ -29,18 +30,21 @@ textarea{
     height:10vh;
 }
 .NormalCode{
+    border-radius: 10px;
     position: relative;
     top: 90px;
     border: 1px solid whitesmoke;
 }
 
 .MarkDown1{
+    border-radius: 10px;
+    font-family: 'Montserrat','Times New Roman', Times, serif;
     position: relative;
     border: 1px solid whitesmoke;
     top: 90px;
 }
 
-.Text{
+.Text,.intutionMd,.ApproachMd,.codeMd{
     margin-left: 10px;
 }
 

@@ -19,7 +19,13 @@ class UserController extends Controller
     }
 
     public function ContactUs(){
-        return view('ContactUs');
+        if(session::has('loginId')){
+            return view('ContactUs');
+        }
+        else{
+            return redirect('/login');
+        }
+      
     }
 
     public function Mail(Request $request){
