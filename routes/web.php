@@ -13,3 +13,8 @@ Route::get('/ContactUs',[UserController::class,'ContactUs']);
 Route::post('UserAuth',[UserAuth::class,'user_register'])->name('UserAuth');
 Route::post('Mail',[UserController::class,'Mail'])->name('Mail');
 Route::post('Login',[UserAuth::class,'user_Login'])->name('Login');
+Route::get('/SendSolution',[UserController::class,'SendSolution']);
+Route::post('/SendSolution',function(){
+        $markdown = request('markdown');
+        return \Illuminate\Support\Str::of($markdown)->markdown();
+});

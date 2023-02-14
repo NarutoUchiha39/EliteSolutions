@@ -20,7 +20,7 @@
             <div class="drop__down" >
                 <ul>
                     <li>
-                        <a href="" style="margin-bottom:40px;">Send solution</a>
+                        <a href="/SendSolution" style="margin-bottom:40px;">Send solution</a>
                     </li>
                     <li>
                         <a href="">Request problems</a>

@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
+use Illuminate\Support\Facades\Session as session;
+
 class UserController extends Controller
 {
     public function Home()
@@ -24,6 +26,15 @@ class UserController extends Controller
         Mail::to('prolaraveldevelopers@gmail.com')->send(new ContactUs($request));
         return redirect('/ContactUs');
          
+    }
+    public function SendSolution(){
+       
+        if(session::has('loginId')){
+            return view('SendSolution');
+        }
+        else{
+            return redirect('/login');
+        }
     }
 }
 

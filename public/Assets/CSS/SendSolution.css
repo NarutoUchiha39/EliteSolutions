@@ -1,0 +1,69 @@
+.code{
+    display: grid;
+    grid-template-columns: 50% 1% 49%;
+    color: white;
+    height: max-content;
+    
+}
+textarea{
+    
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none; /*remove the resize handle on the bottom right*/
+    height:15vh;
+    width:100%;
+    background-color:transparent;
+    color:white;
+    font-size: 20px;
+    
+}
+.title1{
+    position: relative;
+    top: 7vh;
+    height: 90px;
+}
+.title-text{
+    position: relative;
+    top: 5vh;
+    height:10vh;
+}
+.NormalCode{
+    position: relative;
+    top: 90px;
+    border: 1px solid whitesmoke;
+}
+
+.MarkDown1{
+    position: relative;
+    border: 1px solid whitesmoke;
+    top: 90px;
+}
+
+.Text{
+    margin-left: 10px;
+}
+
+textarea.Title-text{
+    border: 1px solid whitesmoke;
+    width:99%;
+    height: 100%;
+    font-size: 30px;
+}
+.btn1 {
+    padding: 0.6rem 1.3rem;
+    background-color: #fff;
+    border: 2px solid #fafafa;
+    font-size: 0.95rem;
+    color: #1abc9c;
+    line-height: 1;
+    border-radius: 25px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+  }
+.btn1:hover {
+  background-color: transparent;
+  color: #fff;
+}
