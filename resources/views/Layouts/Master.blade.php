@@ -2,6 +2,7 @@
 <html lang="en">
   <html lang="en">
     <head>
+        
     <link rel="stylesheet" type="text/css" href="{{asset('/Assets/CSS/Home.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
