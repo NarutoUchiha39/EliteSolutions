@@ -23,7 +23,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         </div>
         <div></div>
         <div class="MarkDown1">
-            <h1 class="Text">Intution</h1>
+            <h1 class="Text" id="">Intution</h1>
             <div class="intutionMd"></div>
             <h1 class="Text">Code</h1>
             <pre>
@@ -45,11 +45,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
 
 <script>
     function Send(){
+        convert()
         let intution = document.getElementsByClassName('intution')[0].value
         let code = document.getElementsByClassName('code1')[0].value
         let obj = {'code':code,'intution':intution}
         axios.post('/Details',{obj}).then(response=>{
-            console.log(response)
+            window.alert("Solution sent successfully !!");
         })
 
         
@@ -85,7 +86,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     let init=()=>{
         setInterval(convert, 10000);
     }
-  
+    init();
     
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
