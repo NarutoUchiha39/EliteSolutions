@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
+use App\Mail\SendSolution;
 use Illuminate\Support\Facades\Session as session;
 
 class UserController extends Controller

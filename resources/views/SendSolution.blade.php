@@ -38,12 +38,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
 <br>
 <br>
 <div style="margin-top:-15px">
-    <button class="btn1"><b>Send your solution</b> </button>
+    <button class="btn1" onclick="Send()"><b>Send your solution</b> </button>
 </div>
 <br>
 <br>
 
 <script>
+    function Send(){
+        let intution = document.getElementsByClassName('intution')[0].value
+        let code = document.getElementsByClassName('code1')[0].value
+        let obj = {'code':code,'intution':intution}
+        axios.post('/Details',{obj}).then(response=>{
+            console.log(response)
+        })
+
+        
+    }
     function textAreaAdjust(element) {
     element.style.height = "10vh";
     element.style.height = (25+element.scrollHeight)+"px";
@@ -52,7 +62,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     function convert(){
         let markdown = document.querySelector(".intution").value;
 
-        axios.post("/SendSolution",{markdown})
+        axios.post("/MarkDown",{markdown})
         .then(response=>{
             document.querySelector(".intutionMd").innerHTML=response.data;
         })
@@ -64,7 +74,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         block.classList.add(`language-${markdown}`)
 
         markdown = document.querySelector(".code1").value;
-        axios.post("/SendSolution",{markdown})
+        axios.post("/MarkDown",{markdown})
         .then(response=>{
             block = document.getElementById('Tf')
             block.innerHTML = response.data
@@ -79,6 +89,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-cpp.min.js" integrity="sha512-/kakiUcgosfrW14dYIe0cMjXoK6PN67r96Dz2zft/Rlm6TcgdCJjb6ZD/jpobHzduAs8NdSeMQHda8iJGkjdow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-java.min.js" integrity="sha512-BEknrL2CnuVpqnSTwO4a9y9uW5bQ/nabkJeahZ5seRXvmzAMq59Ja9OxZe3lVGrnKEcVlamL4nUBl03wzPM/nA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
 

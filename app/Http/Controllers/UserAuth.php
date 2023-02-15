@@ -46,7 +46,7 @@ class UserAuth extends Controller
         $user = Custom_Auth::where('email','=',$request->email)->first();
         if($user){
             if(Hash::check($request->password,$user->password)){
-            $request->session()->put('loginId',$user->id);
+            $request->session()->put(['loginId'=>$user->id,'Email'=>$user->email,'Name'=>$user->name]);
             return redirect('/');}
             else{
                 return back()->withErrors(['Wrong password !!']);
