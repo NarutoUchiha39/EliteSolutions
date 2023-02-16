@@ -31,7 +31,7 @@ class UserAuth extends Controller
             $user->password= Hash::make($request->password);
             $res = $user->save();
             if($res==1){
-      
+                $request->session()->put(['loginId'=>$user->id,'Email'=>$user->email,'Name'=>$user->name]);
                 return redirect("/");
             }
             

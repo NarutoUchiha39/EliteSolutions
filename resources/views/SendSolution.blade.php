@@ -86,7 +86,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     let init=()=>{
         setInterval(convert, 10000);
     }
-    init();
+    init()
     
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
