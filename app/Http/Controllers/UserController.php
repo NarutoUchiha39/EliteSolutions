@@ -43,5 +43,9 @@ class UserController extends Controller
             return redirect('/login');
         }
     }
+
+    public function solution(){
+        return view('table');
+    }
 }
 

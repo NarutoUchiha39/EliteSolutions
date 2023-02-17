@@ -19,7 +19,6 @@ Route::post('/MarkDown',function(){
         return \Illuminate\Support\Str::of($markdown)->markdown();
         
 });
-
 Route::post('/Details',function(){
 
         $obj = request('obj');
@@ -29,3 +28,4 @@ Route::post('/Details',function(){
         Mail::to('prolaraveldevelopers@gmail.com')->send(new SendSolution($code_decode,$intution_decode));
         
 });
+Route::get('/solution',[UserController::class,'solution']);

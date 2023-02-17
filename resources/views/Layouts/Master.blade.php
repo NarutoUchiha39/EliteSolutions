@@ -14,7 +14,7 @@
     <a class="logo" href="/"  style="text-decoration:none;position: relative;margin-top:15px">Elite Solutions</a>
     <ul>
         <li>
-            <a href="#">Solutions</a>
+            <a href="/solution">Solutions</a>
         </li>
         <li>
             <a href="">Contact us <i class="fa-solid fa-caret-down"></i></a>
