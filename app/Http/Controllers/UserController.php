@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
 use App\Mail\SendSolution;
 use Illuminate\Support\Facades\Session as session;
-
+use App\Models\Questions;
 class UserController extends Controller
 {
     public function Home()
@@ -45,7 +45,7 @@ class UserController extends Controller
     }
 
     public function solution(){
-        return view('table');
+        return view('table',['Questions'=>Questions::all()]);
     }
 }
 

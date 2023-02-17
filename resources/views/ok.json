@@ -1,0 +1,6 @@
+[
+  {
+    "Table": "questions",
+    "Create Table": "CREATE TABLE `questions` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `Questions` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `solution` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `created_at` timestamp NULL DEFAULT NULL,\n  `updated_at` timestamp NULL DEFAULT NULL,\n  `Code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `Language` enum('Python','Java','C++') COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci"
+  }
+]
