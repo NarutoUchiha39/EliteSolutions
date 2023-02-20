@@ -24,8 +24,7 @@ Route::post('/Details',function(){
         $obj = request('obj');
         $code_decode =  $obj['code'];
         $intution_decode = $obj['intution'];
-        
-        Mail::to('prolaraveldevelopers@gmail.com')->send(new SendSolution($code_decode,$intution_decode));
+        Mail::to('prolaraveldevelopers@gmail.com')->send(new SendSolution($code_decode,strip_tags(\Illuminate\Support\Str::of($intution_decode)->markdown())));
         
 });
 Route::get('/solution',[UserController::class,'solution']);

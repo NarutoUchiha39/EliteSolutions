@@ -1,0 +1,6 @@
+[
+  {
+    "Table": "custom__auth_questions",
+    "Create Table": "CREATE TABLE `custom__auth_questions` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `question_id` bigint(20) unsigned NOT NULL,\n  `created_at` timestamp NULL DEFAULT NULL,\n  `updated_at` timestamp NULL DEFAULT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci"
+  }
+]

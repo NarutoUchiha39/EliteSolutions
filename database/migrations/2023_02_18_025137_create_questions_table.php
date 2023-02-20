@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->string("Code");
-            $table->enum('Language',['Python','Java','C++']);
+        Schema::create('questions', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('url');
+            $table->string('category');
+            $table->string('difficulty');
+            $table->string('languages')->nullable(true);
+            $table->timestamps();
         });
     }
 
@@ -26,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('questions');
     }
 };

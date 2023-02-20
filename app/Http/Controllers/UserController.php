@@ -45,7 +45,7 @@ class UserController extends Controller
     }
 
     public function solution(){
-        return view('table',['Questions'=>Questions::all()]);
+    return view('table'/*,['Questions'=>Questions::all()]*/);
     }
 }
 
