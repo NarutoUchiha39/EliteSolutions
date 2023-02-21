@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('custom__auths', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("email")->unique();
+            $table->string("email")->unique()->index();
             $table->string("password");
             $table->timestamps();
         });

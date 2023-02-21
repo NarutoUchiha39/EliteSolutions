@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('custom__auth_questions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('question_id');
+            $table->string('user_email');
+            $table->string('question_name');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('custom__auths')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_email')->references('email')->on('custom__auths')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('question_name')->references('title')->on('questions')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
