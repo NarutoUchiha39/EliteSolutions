@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('user_email');
             $table->string('question_name');
             $table->timestamps();
-            $table->foreign('user_email')->references('email')->on('custom__auths')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('question_name')->references('title')->on('questions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_email')->references('email')->on('custom__auths')->onUpdate('cascade')->onDelete('cascade');
+            
         });
     }
 

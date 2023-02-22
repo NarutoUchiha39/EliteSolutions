@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique()->index();
+            $table->string("title")->unique()->index();
             $table->string('url');
             $table->string('category');
             $table->string('difficulty');
