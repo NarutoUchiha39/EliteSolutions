@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('questions_solutions_language', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('question_id');
+            $table->string('question_id');
             $table->string('language');
             $table->text('solution');
             $table->timestamps();
-            $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('question_id')->references('title')->on('questions')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

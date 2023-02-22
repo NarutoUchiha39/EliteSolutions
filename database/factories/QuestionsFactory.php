@@ -16,11 +16,12 @@ class QuestionsFactory extends Factory
      */
     public function definition()
     {
-        // return [
-        //     'Questions' => fake()->text(10),
-        //     'solution' => fake()->text(100),
-        //     'Code'=> fake()->text(50),
-        //     'Language'=> array_rand(array_flip(["Python","Java","C++"]),1)
-        // ];
+        return [
+            'title' => fake()->text(10),
+            'difficulty' => array_rand(array_flip(["easy","medium","hard"]),1),
+            'category' => array_rand(array_flip(["Linked List","Arrays","Hash Map"]),1),
+            'url'=> fake()->text(10),
+            'languages'=> array_rand(array_flip(["Python","Java","C++"]),1)
+        ];
     }
 }

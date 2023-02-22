@@ -16,9 +16,9 @@
       @foreach ($Questions as $Question)
       <tr class="passive-row">
         <td>{{$Question['id']}}</td>
-        <td>{{$Question['Questions']}}</td><td><i class="fas fa-check-square fa-2x"></i></td>
-        <td><a href="https://leetcode.com/problems/linked-list-cycle/">Linked List</a></td>
-        <td>Easy</td>
+        <td>{{$Question['category']}}</td><td><i class="fas fa-check-square fa-2x"></i></td>
+        <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
+        <td>{{$Question['difficulty']}}</td>
         <td>
           <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
           <a href="#"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
