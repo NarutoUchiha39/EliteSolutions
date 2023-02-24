@@ -49,3 +49,14 @@ table tr i{
     background-color: #28254C;
     color: #FFFFFF;
 }
+
+.content-table tbody tr.passive-row1{
+    background-color: #28254C;
+    color: #FFFFFF;
+}
+
+.content-table tbody tr.active-row1{
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #1F1D3D;
+}

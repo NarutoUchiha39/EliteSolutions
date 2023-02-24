@@ -1,6 +1,7 @@
 @extends('Layouts.Master')
 @section('content')
 <link rel="stylesheet" href="{{asset('Assets/CSS/table.css')}}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <table class="content-table" style="margin-top:100px">
     <thead>
       <tr>
@@ -14,19 +15,50 @@
     </thead>
     <tbody>
       @foreach ($Questions as $Question)
-      <tr class="passive-row">
-        <td>{{$Question['id']}}</td>
-        <td>{{$Question['category']}}</td><td><i class="fas fa-check-square fa-2x"></i></td>
-        <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
-        <td>{{$Question['difficulty']}}</td>
-        <td>
-          <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
-          <a href="#"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
-          <a href="#"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
-        </td>
-      </tr>          
+        @if (Session::has('loginId'))
+        <tr class="passive-row">
+          <td>{{$Question['id']}}</td>
+              <td>{{$Question['category']}}</td>
+              @if ($solved==0)
+              <td><i class="fa-regular fa-square fa-2x"></i></td>
+              @else
+              <td><i class="fas fa-check-square fa-2x"></i></td>
+              @endif
+              
+              <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
+              <td>{{$Question['difficulty']}}</td>
+              <td>
+                <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
+                <a href="#"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
+                <a href="#"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
+              </td>
+          </tr>
+        @else
+          <tr class="passive-row1">
+            <td>{{$Question['id']}}</td>
+            <td>{{$Question['category']}}</td><td><i class="fa-regular fa-square fa-2x"></i></td>
+            <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
+            <td>{{$Question['difficulty']}}</td>
+            <td>
+              <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
+              <a href="#"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
+              <a href="#"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
+            </td>
+          </tr>
+        @endif         
       @endforeach
       
     </tbody>
 </table>
+<script>
+  var elements = document.querySelectorAll('img')
+  elements.forEach((element)=>{
+    element.addEventListener('click',()=>{
+      obj = {"Title":element.parentNode.parentNode.parentNode.cells[3].textContent}
+        axios.post('/Solved',{obj}).then((response)=>{
+          console.log(response)
+        })
+    }) 
+})
+</script>
 @endsection

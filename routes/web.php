@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Mail\SendSolution;
 use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
@@ -28,3 +30,9 @@ Route::post('/Details',function(){
         
 });
 Route::get('/solution',[UserController::class,'solution']);
+Route::post('/Solved',function(){
+        $request = request('obj');
+        $name = Session::get('Email');
+        $title = $request['Title'];
+        DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
+});

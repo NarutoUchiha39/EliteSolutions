@@ -50,8 +50,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         let code = document.getElementsByClassName('code1')[0].value
         let obj = {'code':code,'intution':intution}
         axios.post('/Details',{obj}).then(response=>{
-            console.log(response)
-            //window.alert("Solution sent successfully !!");
+            window.alert("Solution sent successfully !!");
         })
 
         
