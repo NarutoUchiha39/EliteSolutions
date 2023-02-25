@@ -16,7 +16,7 @@
     <tbody>
       @foreach ($Questions as $Question)
         @if (Session::has('loginId'))
-        <tr class="passive-row">
+        <tr class="passive-row1">
           <td>{{$Question['id']}}</td>
               <td>{{$Question['category']}}</td>
               @if ($solved==0)
@@ -50,7 +50,7 @@
       
     </tbody>
 </table>
-<script>
+<script defer>
   var elements = document.querySelectorAll('img')
   elements.forEach((element)=>{
     element.addEventListener('click',()=>{

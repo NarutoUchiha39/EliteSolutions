@@ -60,7 +60,7 @@ class UserController extends Controller
                 return view('table',['Questions'=>questions::all(),'solved'=>0]);
             }
             else{
-                
+                return view('table',['Questions'=>questions::all(),'solved'=>0]);   
             }
 
         }
