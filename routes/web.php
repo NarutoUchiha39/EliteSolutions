@@ -34,7 +34,9 @@ Route::post('/Solved',function(){
         $request = request('obj');
         $name = Session::get('Email');
         $title = $request['Title'];
-        DB::update("update  custom__auths set solved = solved+1 where email='$name'");
-        DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
-        return DB::select("select user_email from custom__auth_questions where exists(select user_email from custom__auth_questions where user_email='$name')");
+        if(count(DB::select("select user_email from custom__auth_questions where exists(select user_email from custom__auth_questions where user_email='$name' and question_name = '$title')"))==0)
+        {
+                DB::update("update  custom__auths set solved = solved+1 where email='$name'");
+                DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
+        }
 });

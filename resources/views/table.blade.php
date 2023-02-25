@@ -16,13 +16,20 @@
     <tbody>
       @foreach ($Questions as $Question)
         @if (Session::has('loginId'))
-        <tr class="passive-row1">
+        <tr class="passive-row">
           <td>{{$Question['id']}}</td>
               <td>{{$Question['category']}}</td>
               @if ($solved==0)
-              <td><i class="fa-regular fa-square fa-2x"></i></td>
+                <td><i class="fa-regular fa-square fa-2x"></i></td>
               @else
-              <td><i class="fas fa-check-square fa-2x"></i></td>
+                @if(in_array($Question['title'],$Question_List,true))
+                  <td><i class="fas fa-check-square fa-2x"></i></td>
+                
+                @else
+                {
+                  <td><i class="fa-regular fa-square fa-2x"></i></td>
+                }  
+                @endif
               @endif
               
               <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
