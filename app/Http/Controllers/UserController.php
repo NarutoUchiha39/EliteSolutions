@@ -66,9 +66,6 @@ class UserController extends Controller
                 for ($i=0; $i < count($user_solved); $i++) { 
                     array_push($array,$user_solved[$i]->question_name);
                 }
-                for ($i=0; $i < count($array); $i++) { 
-                    echo($array[$i]);
-                }
                 return view('table',['Questions'=>questions::all(),'solved'=>$res[0]->solved,'Question_List'=>$array]);   
             }
 
