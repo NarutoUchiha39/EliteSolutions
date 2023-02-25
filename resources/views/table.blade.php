@@ -56,6 +56,7 @@
     element.addEventListener('click',()=>{
       obj = {"Title":element.parentNode.parentNode.parentNode.cells[3].textContent}
         axios.post('/Solved',{obj}).then((response)=>{
+          console.log(response)
           console.log(element.parentNode.parentNode.parentNode.cells[2].innerHTML)
             element.parentNode.parentNode.parentNode.cells[2].innerHTML = '<i class="fas fa-check-square fa-2x"></i>'
         })
