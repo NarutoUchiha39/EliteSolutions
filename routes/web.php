@@ -40,3 +40,10 @@ Route::post('/Solved',function(){
                 DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
         }
 });
+
+Route::post('/search',function(){
+        $data = request('data');
+        $title = $data['Title'];
+        $res = DB::select("select * from questions where title like '%$title%'");
+        return $res;
+});

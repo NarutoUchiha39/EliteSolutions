@@ -2,6 +2,11 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('Assets/CSS/table.css')}}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="search" style="width:100%;position: relative;top:100px;display:flex;justify-content:center;align-items:center;margin-bottom:50px">
+<input type="text"  placeholder="Search Questions" id="text">
+<button id="btn">Search</button>
+</div>
+
 <table class="content-table" style="margin-top:100px">
     <thead>
       <tr>
@@ -58,13 +63,22 @@
     </tbody>
 </table>
 <script defer>
+  var button = document.querySelector('#btn');
+  button.addEventListener('click',()=>{
+    var data = document.querySelector("#text").value;
+    data = {'Title':data}
+    axios.post('/search',{data}).then((response)=>
+    {
+      console.log(response)
+    })
+  })
+  console.log(button)
   var elements = document.querySelectorAll('img')
   elements.forEach((element)=>{
     element.addEventListener('click',()=>{
       obj = {"Title":element.parentNode.parentNode.parentNode.cells[3].textContent}
         axios.post('/Solved',{obj}).then((response)=>{
-          console.log(response)
-          console.log(element.parentNode.parentNode.parentNode.cells[2].innerHTML)
+
             element.parentNode.parentNode.parentNode.cells[2].innerHTML = '<i class="fas fa-check-square fa-2x"></i>'
         })
     }) 
