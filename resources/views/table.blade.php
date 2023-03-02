@@ -2,12 +2,13 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('Assets/CSS/table.css')}}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<div class="search" style="width:100%;position: relative;top:100px;display:flex;justify-content:center;align-items:center;margin-bottom:50px">
-<input type="text"  placeholder="Search Questions" id="text">
-<button id="btn">Search</button>
+<div class="search" style="width:100%;position: relative;top:100px;display:flex;justify-content:center;align-items:center;">
+<input type="text"  placeholder="Search Questions" id="text" onkeyup="search()">
+<button id="btn" >Search</button>
+<button onclick="filter()" style="margin-left:5px">Filter</button>
 </div>
 
-<table class="content-table" style="margin-top:100px">
+<table class="content-table" style="margin-top:120px">
     <thead>
       <tr>
         <th>Sr.no</th>
@@ -62,6 +63,7 @@
       
     </tbody>
 </table>
+<script src="{{asset('/Assets/JS/Sort.js')}}"></script>
 <script defer>
   var button = document.querySelector('#btn');
   button.addEventListener('click',()=>{
