@@ -49,7 +49,7 @@ class UserController extends Controller
 
     public function solution(){
         if(!session::has('loginId'))
-        {
+        {   dd(questions::all());
             return view('table',['Questions'=>questions::all()]);
         }
         if(session::has('loginId'))
@@ -57,6 +57,7 @@ class UserController extends Controller
             $id = session::get('loginId');
             $res = DB::select("select solved from custom__auths where id=$id"); 
             if($res[0]->solved==0){
+                
                 return view('table',['Questions'=>questions::all(),'solved'=>0]);
             }
             else{
@@ -66,6 +67,7 @@ class UserController extends Controller
                 for ($i=0; $i < count($user_solved); $i++) { 
                     array_push($array,$user_solved[$i]->question_name);
                 }
+                
                 return view('table',['Questions'=>questions::all(),'solved'=>$res[0]->solved,'Question_List'=>$array]);   
             }
 

@@ -6,7 +6,6 @@ use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
 Route::get('/signup',[UserAuth::class,'Register']);
@@ -41,9 +40,7 @@ Route::post('/Solved',function(){
         }
 });
 
-Route::post('/search',function(){
-        $data = request('data');
-        $title = $data['Title'];
-        $res = DB::select("select * from questions where title like '%$title%'");
-        return $res;
+Route::get('/Test',function(){
+       
+
 });

@@ -46,9 +46,6 @@ function filter()
     }
 
     let Index = 1
-    console.log(easy)
-    console.log(medium)
-    console.log(hard)
     
    
     for (let index = 0; index < easy.length; index++) 
