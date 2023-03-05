@@ -38,7 +38,7 @@
                 @endif
               @endif
               
-              <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
+              <td>{{$Question['title']}}</td>
               <td>{{$Question['difficulty']}}</td>
               <td>
                 <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
