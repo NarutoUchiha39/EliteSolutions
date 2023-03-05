@@ -41,21 +41,21 @@
               <td>{{$Question['title']}}</td>
               <td>{{$Question['difficulty']}}</td>
               <td>
-                <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
-                <a href="#"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
-                <a href="#"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
+                <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
+                <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
+                <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
               </td>
           </tr>
         @else
           <tr class="passive-row1">
             <td>{{$Question['id']}}</td>
             <td>{{$Question['category']}}</td><td><i class="fa-regular fa-square fa-2x"></i></td>
-            <td><a href="{{$Question['url']}}">{{$Question['title']}}</a></td>
+            <td>{{$Question['title']}}</td>
             <td>{{$Question['difficulty']}}</td>
             <td>
-              <a href="#"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
-              <a href="#"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
-              <a href="#"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
+              <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
+              <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
+              <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
             </td>
           </tr>
         @endif         
@@ -68,12 +68,10 @@
   var elements = document.querySelectorAll('img')
   elements.forEach((element)=>{
     element.addEventListener('click',()=>{
-      obj = {"Title":element.parentNode.parentNode.parentNode.cells[3].textContent}
-        axios.post('/Solved',{obj}).then((response)=>{
-          console.log(response)
+      
             element.parentNode.parentNode.parentNode.cells[2].innerHTML = '<i class="fas fa-check-square fa-2x"></i>'
             
-        })
+        
     }) 
 })
 </script>

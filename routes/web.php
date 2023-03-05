@@ -29,22 +29,18 @@ Route::post('/Details',function(){
         
 });
 Route::get('/solution',[UserController::class,'solution']);
-Route::post('/Solved',function(){
-        if(Session::has('loginId')){
-        $request = request('obj');
-        $name = Session::get('Email');
-        $title = $request['Title'];
-        if(count(DB::select("select user_email from custom__auth_questions where exists(select user_email from custom__auth_questions where user_email='$name' and question_name = '$title')"))==0)
-        {
-                DB::update("update  custom__auths set solved = solved+1 where email='$name'");
-                DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
-        }
-        return true;
-}
-}
-);
 
-Route::get('/Test',function(){
-       return view('Test',["Data"=>DB::select("select DESCRIPTION from questions")]);
+Route::get('/SolutionPage/{id}',function($id){
+        if(Session::has('loginId')){
+                $name = Session::get('Email');
+                $title = $id;
+                if(count(DB::select("select user_email from custom__auth_questions where exists(select user_email from custom__auth_questions where user_email='$name' and question_name = '$title')"))==0)
+                {
+                        DB::update("update  custom__auths set solved = solved+1 where email='$name'");
+                        DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
+                }
+          
+        }
+       return view('SolutionPage',["Data"=>DB::select("select DESCRIPTION from questions where title='$id' ")]);
 
 });
