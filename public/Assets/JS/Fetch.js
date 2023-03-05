@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+let questions = ["min-cost-to-connect-all-points"] 
 const connection = mysql.createConnection({
     host: 'sql12.freemysqlhosting.net',
     user: 'sql12597283',
@@ -17,9 +18,9 @@ const connection = mysql.createConnection({
   });
 
 
-  
+
 const LEETCODE_API_ENDPOINT = 'https://leetcode.com/graphql'
-DAILY_CODING_CHALLENGE_QUERY =JSON.stringify({"operationName":"questionData","variables":{"titleSlug":"two-sum"},"query":"query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    boundTopicId\n    title\n    titleSlug\n    content\n    translatedTitle\n    translatedContent\n   }\n}\n"})
+DAILY_CODING_CHALLENGE_QUERY =JSON.stringify({"operationName":"questionData","variables":{"titleSlug":`${questions[0]}`},"query":"query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    boundTopicId\n    title\n    titleSlug\n    content\n    translatedTitle\n    translatedContent\n   }\n}\n"})
 const fetchDailyCodingChallenge = async () => {
     console.log(`Fetching daily coding challenge from LeetCode API.`)
 

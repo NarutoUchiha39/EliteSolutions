@@ -30,7 +30,7 @@ Route::post('/Details',function(){
 });
 Route::get('/solution',[UserController::class,'solution']);
 Route::post('/Solved',function(){
-        if(session::has('loginID')){
+        if(Session::has('loginId')){
         $request = request('obj');
         $name = Session::get('Email');
         $title = $request['Title'];
@@ -39,8 +39,10 @@ Route::post('/Solved',function(){
                 DB::update("update  custom__auths set solved = solved+1 where email='$name'");
                 DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
         }
+        return true;
 }
-});
+}
+);
 
 Route::get('/Test',function(){
        
