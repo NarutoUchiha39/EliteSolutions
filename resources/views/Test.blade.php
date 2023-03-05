@@ -9,7 +9,7 @@
 <body>
     <div class="">
         @foreach ($Data as $d)
-        {{$d->DESCRIPTION}}
+        {!! $d->DESCRIPTION !!}
             
         @endforeach
     </div>
