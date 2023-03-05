@@ -5,6 +5,7 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@types/mysql": "^2.15.21",
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.2",
         "lodash": "^4.17.19",
@@ -13,6 +14,7 @@
     },
     "dependencies": {
         "aos": "^3.0.0-beta.6",
+        "mysql": "^2.18.1",
         "typewriter-effect": "^2.19.0"
     }
 }

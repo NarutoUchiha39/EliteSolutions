@@ -49,7 +49,7 @@ class UserController extends Controller
 
     public function solution(){
         if(!session::has('loginId'))
-        {   dd(questions::all());
+        {   
             return view('table',['Questions'=>questions::all()]);
         }
         if(session::has('loginId'))

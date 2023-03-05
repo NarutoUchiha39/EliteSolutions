@@ -65,23 +65,14 @@
 </table>
 <script src="{{asset('/Assets/JS/Sort.js')}}"></script>
 <script defer>
-  var button = document.querySelector('#btn');
-  button.addEventListener('click',()=>{
-    var data = document.querySelector("#text").value;
-    data = {'Title':data}
-    axios.post('/search',{data}).then((response)=>
-    {
-      console.log(response)
-    })
-  })
-  console.log(button)
   var elements = document.querySelectorAll('img')
   elements.forEach((element)=>{
     element.addEventListener('click',()=>{
       obj = {"Title":element.parentNode.parentNode.parentNode.cells[3].textContent}
         axios.post('/Solved',{obj}).then((response)=>{
-
+          console.log(response)
             element.parentNode.parentNode.parentNode.cells[2].innerHTML = '<i class="fas fa-check-square fa-2x"></i>'
+            
         })
     }) 
 })
