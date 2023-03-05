@@ -45,6 +45,6 @@ Route::post('/Solved',function(){
 );
 
 Route::get('/Test',function(){
-       return view('Test',["Data"=>DB::select("select DESCRIPTION from questions where id=16")]);
+       return view('Test',["Data"=>DB::select("select DESCRIPTION from questions")]);
 
 });

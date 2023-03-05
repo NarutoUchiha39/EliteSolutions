@@ -4,7 +4,8 @@ const connection = mysql.createConnection({
     host: 'sql12.freemysqlhosting.net',
     user: 'sql12597283',
     password: '6AsFxpy2Lw',
-    port:3306
+    port:3306,
+    database:'sql12597283'
   });
   
   connection.connect((error) => {
@@ -20,7 +21,7 @@ const connection = mysql.createConnection({
 const LEETCODE_API_ENDPOINT = 'https://leetcode.com/graphql'
 
 const fetchDailyCodingChallenge = async (iterator) => {
-    DAILY_CODING_CHALLENGE_QUERY =JSON.stringify({"operationName":"questionData","variables":{"titleSlug":`${iterator}`},"query":"query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    boundTopicId\n    title\n    titleSlug\n    content\n    translatedTitle\n    translatedContent\n   }\n}\n"})
+  DAILY_CODING_CHALLENGE_QUERY =JSON.stringify({"operationName":"questionData","variables":{"titleSlug":`${iterator}`},"query":"query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n  difficulty\n  boundTopicId\n    title\n    titleSlug\n    content\n  categoryTitle\n  translatedTitle\n    translatedContent\n topicTags{name slug }\n }\n}\n"})
     const init = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -32,14 +33,19 @@ const fetchDailyCodingChallenge = async (iterator) => {
 }
 async function Call() 
 {
-    let questions = ["min-cost-to-connect-all-points","jump-game"] 
+    let questions = ["min-cost-to-connect-all-points","network-delay-time"] 
 
     for (const iterator of questions) 
     {
       let response = await fetchDailyCodingChallenge(iterator)
-      response = response.data.question.content
-      console.log(response)
+      if(response){
+      
+      sql = `insert into questions(title,category,difficulty,description) values('${response.data.question.title}','${
+        response.data.question.topicTags[response.data.question.topicTags.length-1].name}','${response.data.question.difficulty}','${response.data.question.content}')`
+
+        connection.query(sql)
     }
+  }
+    connection.end()
 }
 Call()
-connection.end()
