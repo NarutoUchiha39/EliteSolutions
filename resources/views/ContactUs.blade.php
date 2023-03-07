@@ -56,6 +56,9 @@
             </div>
 
         </div>
+        <script defer src="{{asset('Assets/JS/ContactUs.js')}}"></script>
     </div>
-    <script src="{{asset('Assets/JS/ContactUs.js')}}"
+    
+    
+    
 @endsection

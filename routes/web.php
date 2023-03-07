@@ -41,6 +41,7 @@ Route::get('/SolutionPage/{id}',function($id){
                 }
           
         }
-       return view('SolutionPage',["Data"=>DB::select("select DESCRIPTION from questions where title='$id' ")]);
+        
+       return view('SolutionPage',["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'")]);
 
 });
