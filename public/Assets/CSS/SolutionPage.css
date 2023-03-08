@@ -10,13 +10,13 @@ code
     }
 .code{
     color: white;
-    margin-top:100px;
-    margin-left:20px;
-    max-width: 100%;
+ 
+    max-width: 80%;
    
 }
 pre{
     font-size: 16px;
+    white-space: pre-wrap;
 }
 .like
 {
@@ -29,7 +29,8 @@ pre{
 {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-   
+    margin-top:100px;
+    margin-left:20px;
 }
 .title
 {
@@ -46,4 +47,8 @@ pre{
 }
 img{
     margin: 30px;
+}
+
+.solution{
+    max-width: 100%;
 }
