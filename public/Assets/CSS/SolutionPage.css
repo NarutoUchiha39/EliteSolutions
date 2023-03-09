@@ -11,12 +11,15 @@ code
 .code{
     color: white;
  
-    max-width: 80%;
+    width: 80%;
    
 }
+div.code1 {
+    white-space: pre;
+  }
 pre{
     font-size: 16px;
-    white-space: pre-wrap;
+   
 }
 .like
 {
@@ -28,7 +31,7 @@ pre{
 .container
 {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 50% 50%;
     margin-top:100px;
     margin-left:20px;
 }
