@@ -4,6 +4,7 @@
 rel="stylesheet"
 href="{{asset('/Assets/CSS/Prism1.css')}}"
 />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
@@ -11,28 +12,28 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
 
     <div class="container">
         <div class="code">
-            <span class="title"> 55. {{$title}}</span>
+            <span class="title"> 55.<span class="heading"> {{$title}}</span></span>
         
             <div class="like">
-                <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i><div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+                <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i>
+                <div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
             
-            <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes" onclick="checkDislikes(this)"></i>
-            <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} 
+                <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes" onclick="checkDislikes(this)"></i>
+                <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div>
+                @if ( ($Difficulty[0]->difficulty == 'Medium'))
+                <img src="{{asset('/Assets/images/medium.png')}}" style="margin-top:0px"/>                
+                @endif
+
+                @if ( ($Difficulty[0]->difficulty == 'Easy'))
+                <img src="{{asset('/Assets/images/easy.png')}}" style="margin-top:-4px"/>                
+                @endif
+
+                @if ( ($Difficulty[0]->difficulty == 'Hard'))
+                <img src="{{asset('/Assets/images/hard.png')}}" style="margin-top:0px"/>                
+                @endif
+
+            
             </div>
-            @if ( ($Difficulty[0]->difficulty == 'Medium'))
-            <img src="{{asset('/Assets/images/medium.png')}}" style="margin-top:0px"/>                
-            @endif
-
-            @if ( ($Difficulty[0]->difficulty == 'Easy'))
-            <img src="{{asset('/Assets/images/easy.png')}}" style="margin-top:-4px"/>                
-            @endif
-
-            @if ( ($Difficulty[0]->difficulty == 'Hard'))
-            <img src="{{asset('/Assets/images/hard.png')}}" style="margin-top:0px"/>                
-            @endif
-
-            
-        </div>
             
             
             <div class="content">
@@ -53,7 +54,19 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             </pre>
         </div>
     </div>
-    <script src="{{asset('/Assets/JS/Solutions.js')}}" type="module">
-        
+    <script>
+        function checkLikes(likes) 
+        {
+            console.log(likes,document.querySelector(".title .heading").textContent)
+
+            let like = {'data':'Like','title':document.querySelector(".title .heading").textContent}
+            axios.post("/Likes",{like}).then((response)=>{
+                let val =parseInt(document.querySelector(".likes").textContent)
+                val = val+ 1;
+                document.querySelector(".likes").innerHTML = val.toString()
+                document.querySelector("#likes").style.color = '#73D7FF'
+            })
+            
+        }
     </script>
 @endsection

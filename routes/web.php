@@ -46,3 +46,12 @@ Route::get('/SolutionPage/{id}',function($id){
        return view('SolutionPage',$var);
 
 });
+
+Route::post('/Likes',function(){
+        $obj = request('like');
+        $title = $obj['title'];
+        if($obj['data']=='Like'){
+                DB::update("update questions set likes=likes+1 where title='$title'");
+                DB::disconnect('mysql');
+        }
+});
