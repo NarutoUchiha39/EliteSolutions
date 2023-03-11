@@ -12,9 +12,29 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
     <div class="container">
         <div class="code">
             <span class="title"> 55. {{$title}}</span>
-            <div class="like"><i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i><div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+        
+            <div class="like">
+                <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i><div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
             
-            <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes" onclick="checkDislikes(this)"></i><div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div></div>
+            <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes" onclick="checkDislikes(this)"></i>
+            <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} 
+            </div>
+            @if ( ($Difficulty[0]->difficulty == 'Medium'))
+            <img src="{{asset('/Assets/images/medium.png')}}" style="margin-top:0px"/>                
+            @endif
+
+            @if ( ($Difficulty[0]->difficulty == 'Easy'))
+            <img src="{{asset('/Assets/images/easy.png')}}" style="margin-top:-4px"/>                
+            @endif
+
+            @if ( ($Difficulty[0]->difficulty == 'Hard'))
+            <img src="{{asset('/Assets/images/hard.png')}}" style="margin-top:0px"/>                
+            @endif
+
+            
+        </div>
+            
+            
             <div class="content">
                 @foreach ($Data as $d)
                     {!! $d->DESCRIPTION !!}
