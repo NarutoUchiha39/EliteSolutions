@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('/Assets/CSS/SendSolution.css')}}">
 <link
 rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+href="{{asset('/Assets/CSS/Prism1.css')}}"
 />
 <div class="title1" style="color:white;">
     <div class="title-text" style="text-align:center;">
@@ -26,8 +26,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
             <h1 class="Text" id="">Intution</h1>
             <div class="intutionMd"></div>
             <h1 class="Text">Code</h1>
-            <pre>
+            <pre style="background-color:#1C1A1A;color:white;text-shadow:none">
                 <code id="Tf" class="language-python">
+                    ""
                 </code>
             </pre>
         </div>
@@ -75,12 +76,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         block.classList.add(`language-${markdown}`)
 
         markdown = document.querySelector(".code1").value;
-        axios.post("/MarkDown",{markdown})
-        .then(response=>{
             block = document.getElementById('Tf')
-            block.innerHTML = response.data
+            block.innerHTML = markdown
             Prism.highlightElement(block);
-        })
+        
     }
     
     let init=()=>{
