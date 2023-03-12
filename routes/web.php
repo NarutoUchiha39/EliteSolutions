@@ -50,8 +50,17 @@ Route::get('/SolutionPage/{id}',function($id){
 Route::post('/Likes',function(){
         $obj = request('like');
         $title = $obj['title'];
-        if($obj['data']=='Like'){
-                DB::update("update questions set likes=likes+1 where title='$title'");
-                DB::disconnect('mysql');
+        $mail = Session::get('Email');
+        if(Session::has('loginId') && DB::select("select liked from custom__auth_questions where user_email='$mail' and question_name='$title'")[0]->liked==0)
+        {
+                if($obj['data']=='Like'){
+                        DB::update("update questions set likes=likes+1 where title='$title'");
+                        DB::update("update custom__auth_questions set liked=1 where user_email='$mail' and question_name='$title'");
+                        DB::disconnect('mysql');
+                        return 'true';
+                }
         }
+       
+        return 'false';
+       
 });

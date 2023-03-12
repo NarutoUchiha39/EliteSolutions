@@ -57,14 +57,18 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
     <script>
         function checkLikes(likes) 
         {
-            console.log(likes,document.querySelector(".title .heading").textContent)
 
             let like = {'data':'Like','title':document.querySelector(".title .heading").textContent}
             axios.post("/Likes",{like}).then((response)=>{
-                let val =parseInt(document.querySelector(".likes").textContent)
-                val = val+ 1;
-                document.querySelector(".likes").innerHTML = val.toString()
-                document.querySelector("#likes").style.color = '#73D7FF'
+                if(response.data)
+                {
+                    console.log(response)
+                    let val =parseInt(document.querySelector(".likes").textContent)
+                    val = val+ 1;
+                    document.querySelector(".likes").innerHTML = val.toString()
+                    document.querySelector("#likes").style.color = '#73D7FF'
+                 }
+                 
             })
             
         }
