@@ -31,17 +31,21 @@ Route::post('/Details',function(){
 Route::get('/solution',[UserController::class,'solution']);
 
 Route::get('/SolutionPage/{id}',function($id){
+        $likes=0;
         if(Session::has('loginId')){
                 $name = Session::get('Email');
                 $title = $id;
+                
                 if(count(DB::select("select user_email from custom__auth_questions where exists(select user_email from custom__auth_questions where user_email='$name' and question_name = '$title')"))==0)
                 {
                         DB::update("update  custom__auths set solved = solved+1 where email='$name'");
                         DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
+                        
                 }
+                $likes=DB::select("select liked from custom__auth_questions where user_email='$name' and question_name='$title'");
           
         }
-        $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' ")];
+        $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' "),"likes"=>$likes];
         DB::disconnect('mysql');
        return view('SolutionPage',$var);
 

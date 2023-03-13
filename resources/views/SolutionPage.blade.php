@@ -15,8 +15,15 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             <span class="title"> 55.<span class="heading"> {{$title}}</span></span>
         
             <div class="like">
-                <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i>
-                <div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+                @if ($likes[0]->liked==1)
+                    <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer;color:#73D7FF"></i>
+                    <div class="likes" style="font-size:20px;margin-left:15px;">{{$popularity[0]->likes}}</div>
+                @else
+                    <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i>
+                    <div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+                @endif
+                
+
             
                 <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes" onclick="checkDislikes(this)"></i>
                 <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div>
