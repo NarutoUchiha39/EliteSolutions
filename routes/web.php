@@ -42,7 +42,7 @@ Route::get('/SolutionPage/{id}',function($id){
                         DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
                         
                 }
-                $likes=DB::select("select liked from custom__auth_questions where user_email='$name' and question_name='$title'");
+                $likes=DB::select("select liked,disliked from custom__auth_questions where user_email='$name' and question_name='$title'");
           
         }
         $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' "),"likes"=>$likes];
@@ -55,13 +55,24 @@ Route::post('/Likes',function(){
         $obj = request('like');
         $title = $obj['title'];
         $mail = Session::get('Email');
-        if(Session::has('loginId') && DB::select("select liked from custom__auth_questions where user_email='$mail' and question_name='$title'")[0]->liked==0)
+        if(Session::has('loginId') )
         {
                 if($obj['data']=='Like'){
+                        if(DB::select("select liked from custom__auth_questions where user_email='$mail' and question_name='$title'")[0]->liked==0){
                         DB::update("update questions set likes=likes+1 where title='$title'");
                         DB::update("update custom__auth_questions set liked=1 where user_email='$mail' and question_name='$title'");
                         DB::disconnect('mysql');
-                        return 'true';
+                        return 'true';}
+                }
+
+                if($obj['data']=='DisLike')
+                {
+                        
+                        if(DB::select("select disliked from custom__auth_questions where user_email='$mail' and question_name='$title'")[0]->disliked==0){
+                                DB::update("update questions set dislikes=dislikes+1 where title='$title'");
+                                DB::update("update custom__auth_questions set disliked=1 where user_email='$mail' and question_name='$title'");
+                                DB::disconnect('mysql');
+                                return 'true';}
                 }
         }
        

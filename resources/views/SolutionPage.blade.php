@@ -16,17 +16,34 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
         
             <div class="like">
                 @if ($likes[0]->liked==1)
-                    <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer;color:#73D7FF"></i>
+                    <i class="fa-regular fa-thumbs-up" id="likes" style="cursor:pointer;color:#73D7FF"></i>
                     <div class="likes" style="font-size:20px;margin-left:15px;">{{$popularity[0]->likes}}</div>
                 @else
-                    <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i>
-                    <div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+
+                    @if ($likes[0]->disliked==1)
+                        <i class="fa-regular fa-thumbs-up" id="likes" style="cursor:pointer"></i>
+                        <div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+                    @else
+                        <i class="fa-regular fa-thumbs-up" id="likes" onclick="checkLikes(this)" style="cursor:pointer"></i>
+                        <div class="likes" style="font-size:20px;margin-left:15px">{{$popularity[0]->likes}}</div>
+                    @endif
                 @endif
                 
 
-            
-                <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes" onclick="checkDislikes(this)"></i>
-                <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div>
+                @if ($likes[0]->disliked==1)
+                    <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer;color:#ffcccb" id="dislikes" ></i>
+                    <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div>
+                @else
+                    @if ($likes[0]->liked==1)
+                        <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" id="dislikes"></i>
+                        <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div>
+                    @else
+                        <i class="fa-regular fa-thumbs-down" style="margin-left: 30px;cursor:pointer" onclick="checkDislikes(this)" id="dislikes"></i>
+                        <div class="dislikes" style="font-size:20px;margin-left:15px;margin-top:-3px">{{$popularity[0]->dislikes}} </div>
+                    @endif
+                    
+                @endif
+
                 @if ( ($Difficulty[0]->difficulty == 'Medium'))
                 <img src="{{asset('/Assets/images/medium.png')}}" style="margin-top:0px"/>                
                 @endif
@@ -69,11 +86,30 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             axios.post("/Likes",{like}).then((response)=>{
                 if(response.data)
                 {
-                    console.log(response)
                     let val =parseInt(document.querySelector(".likes").textContent)
                     val = val+ 1;
                     document.querySelector(".likes").innerHTML = val.toString()
                     document.querySelector("#likes").style.color = '#73D7FF'
+                    document.querySelector('#dislikes').removeAttribute("onclick");
+                 }
+                 
+            })
+            
+        }
+
+        function checkDislikes(likes) 
+        {
+            console.log("Hi")
+            let like = {'data':'DisLike','title':document.querySelector(".title .heading").textContent}
+            axios.post("/Likes",{like}).then((response)=>{
+                if(response.data)
+                {
+                    
+                    let val =parseInt(document.querySelector(".dislikes").textContent)
+                    val = val+ 1;
+                    document.querySelector(".dislikes").innerHTML = val.toString()
+                    document.querySelector("#dislikes").style.color = '#ffcccb'
+                    document.querySelector('#likes').removeAttribute("onclick");
                  }
                  
             })
