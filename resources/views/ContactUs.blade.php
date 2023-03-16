@@ -29,16 +29,16 @@
                 <form action="{{route('Mail')}}" method="post">
                     @csrf
                     <h3 class="title">Contact Us</h3>
-                    <div class="input-container">
+                    <div class="input-container focus">
 
-                        <input type="text" name="Name" class="input" id="Name">
+                        <input type="text" name="Name" class="input" id="Name" value="{{Session::get('Name')}}" disabled>
                         <label for="Name">Name</label>
                         <span>Name</span>
                     </div>
                         
-                    <div class="input-container">
+                    <div class="input-container focus">
                        
-                        <input type="email" name="email" class="input" id="Email">
+                        <input type="email" name="email" class="input" id="Email" value="{{Session::get('Email')}}" disabled>
                         <label for="Email">Email </label>
                         <span>Email</span>
                     </div>

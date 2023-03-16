@@ -9,7 +9,7 @@
 
   <p class="title-text">A dedicated platform for getting the most optimized and <br>handpicked solutions for Leetcode problems.</p>
   <div class="pos-button">
-  <button class="btn" style="margin-bottom:20%" >Create account</button>
+  <button class="btn" style="margin-bottom:20%" onclick="location.href = '/signup' ">Create account</button>
   </div>
   <div class="Shapes">
   <div  class="Ellipse5"></div>
@@ -21,7 +21,7 @@
   </div>
 
   <div data-aos="fade-up-right" style="margin-bottom:90px">
-    <img class="img" src="{{asset('/Assets/images/coding.gif')}}" style="float:right"/>
+    <img class="img" data-aos="fade-up-left"   src="{{asset('/Assets/images/coding.gif')}}" style="float:right"/>
     <h3 class="title-text">Why use Elite Solutions?</h3>
     <h5 class="title-text">There are many websites that provide Leetcode <br>solutions, so what makes Elite Solutions stand out? <br>We will provide you with some salient features that <br>make Elite Solutions stand out!</h5>
 
@@ -33,18 +33,11 @@
 <br>
 <br>
 <br>
-  <div style="position:relative;top:-200px;float:right;right:40%;text-align:center;">
-    <table>
-      <tr>
-        <td style="width:170px;height:50px">
-          <p style="color:white;font-weight:bold;font-size:40px">Learn</p>
-        </td>
-        <td>
-          <div id="app" style="color:white;font-weight:bold;font-size:40px;margin-top:10px"></div>
-        </td>
-      </tr>
-    </table>
-</div>
+
+  <div class="type" style="display: flex;justify-content:center;align-items:center">
+    <p style="color:white;font-weight:bold;font-size:40px;margin-right:10px">Learn</p>
+    <div id="app" style="color:#6462E2;font-weight:bold;font-size:40px;margin-top:10px"></div>
+  </div>
 <br>
 <br>
 <br>
@@ -63,9 +56,9 @@
             <div class="card">
                 <img class="card-image" src="{{asset("/Assets/images/bgc2.jpg")}}"/>
                 <h4>Requesting Problems</h4>
-                <button class="btn">Request<br>Problem=></button>
+                <button class="btn" onclick="location.href = '/RequestProblem'">Request<br>Problem</button>
             </div>
-            <p style="position: relative;float:right;color:wheat;right:15vh;top:-35vh">Stuck with a problem that is not on our<br>website? Just send us your problem and our<br>team will provide you with a solution!</p>
+            <p style="position: relative;float:right;color:white;right:15vh;top:-35vh">Stuck with a problem that is not on our<br>website? Just send us your problem and our<br>team will provide you with a solution!</p>
         </div>
        
         <div class="Line1"></div>
@@ -75,9 +68,9 @@
             <div class="card">
                 <img class="card-image" src="{{asset("/Assets/images/bgc2.jpg")}}"/>
                 <h4>User Satisfaction</h4>
-                <button class="btn">Contact Us =></button>
+                <button class="btn" onclick="location.href='/ContactUs'">Contact Us =></button>
             </div>
-            <p style="position: relative;float:left;color:wheat;right:110vh;top:-35vh">We are constantly on lookout for<br>complains and suggestions. Feel free to<br>reach us!</p>
+            <p style="position: relative;float:left;color:white;right:110vh;top:-35vh">We are constantly on lookout for<br>complains and suggestions. Feel free to<br>reach us!</p>
         </div>
         <div class="Line3"></div>
         
@@ -86,8 +79,8 @@
             <div class="card" >
                 <img class="card-image" src="{{asset("/Assets/images/bcg3.jpg")}}"/>
                 <h4>Post your own solution</h4>
-                <button class="btn">Post your<br>solution > =></button>
-                <p style="position: relative;float:right;color:wheat;left:105vh;top:-35vh">Think your solution is more optimized<br>than ours? Feel free to send your solution<br>and it may be featured on our website!</p>
+                <button class="btn" onclick="location.href = '/SendSolution' ">Post your<br>solution > =></button>
+                <p style="position: relative;float:right;color:white;left:105vh;top:-35vh">Think your solution is more optimized<br>than ours? Feel free to send your solution<br>and it may be featured on our website!</p>
             </div>
         </div>
         <div class="Line5"></div>
@@ -96,12 +89,17 @@
             <div class="card">
                 <img class="card-image" src="{{asset("/Assets/images/bcg3.jpg")}}"/>
                 <h4>Optimized Solutions</h4>
-                <button class="btn">Solutions =></button>
-                <p style="position: relative;float:left;color:wheat;left:-110vh;top:-35vh">With our solutions you will be rest assured<br>that you will be undetrstanding the most<br>optimal approach to the various problems.</p>
+                <button class="btn" onclick="location.href = '/solution' ">Solutions =></button>
+                <p style="position: relative;float:left;color:white;left:-110vh;top:-35vh">With our solutions you will be rest assured<br>that you will be undetrstanding the most<br>optimal approach to the various problems.</p>
             </div>
         </div> 
     </div>
-  
+
+    </section>
+    <div class="image" style="position:relative;top:1400px;display:flex;justify-content:center;align-items:center" >
+      <img src="{{asset('/Assets/images/FAANG.png')}}" alt="" srcset="" data-aos="fade-right">
+    </div>
+    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
