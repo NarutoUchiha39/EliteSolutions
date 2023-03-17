@@ -3,9 +3,13 @@
 <link rel="stylesheet" href="{{asset('Assets/CSS/table.css')}}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <div class="search" style="width:100%;position: relative;top:100px;display:flex;justify-content:center;align-items:center;">
-<input type="text"  placeholder="Search Questions" id="text" onkeyup="search()">
-<button id="btn" >Search</button>
-<button onclick="filter()" style="margin-left:5px">Filter</button>
+  <div class="bar">
+    <input type="text"  placeholder="Search Questions" id="text" onkeyup="search()">
+    <i class="fa-solid fa-filter" style="color: greenyellow;margin-right:15px;cursor:pointer" onclick="filter()"></i>
+    <button id="btn"><img src="{{asset('/Assets/images/search.png')}}"/></button>
+    
+  </div>
+  
 </div>
 
 <table class="content-table" style="margin-top:120px">
