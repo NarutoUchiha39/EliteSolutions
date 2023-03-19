@@ -31,7 +31,10 @@ Route::post('/Details',function(){
 Route::get('/solution',[UserController::class,'solution']);
 
 Route::get('/SolutionPage/{id}',function($id){
-        $likes=0;
+        $likes=array(0=>new stdClass());
+        $likes[0]->liked = 0;
+        $likes[0]->disliked = 0;
+
         if(Session::has('loginId')){
                 $name = Session::get('Email');
                 $title = $id;
@@ -43,6 +46,7 @@ Route::get('/SolutionPage/{id}',function($id){
                         
                 }
                 $likes=DB::select("select liked,disliked from custom__auth_questions where user_email='$name' and question_name='$title'");
+              
           
         }
         $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' "),"likes"=>$likes];

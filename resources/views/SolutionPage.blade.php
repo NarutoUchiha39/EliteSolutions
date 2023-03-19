@@ -99,7 +99,6 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
 
         function checkDislikes(likes) 
         {
-            console.log("Hi")
             let like = {'data':'DisLike','title':document.querySelector(".title .heading").textContent}
             axios.post("/Likes",{like}).then((response)=>{
                 if(response.data)
