@@ -8,6 +8,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-java.js"></script>
 <link rel="stylesheet" href="{{asset('/Assets/CSS/SolutionPage.css')}}">
 
     <div class="container">
@@ -61,18 +62,27 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             
             
             <div class="content">
-                @foreach ($Data as $d)
-                    {!! $d->DESCRIPTION !!}
-                @endforeach
+                @if ($Data[0]->DESCRIPTION[0]!="<")
+                    @php
+                        echo nl2br($Data[0]->DESCRIPTION);
+                    @endphp
+                @else
+                    @foreach ($Data as $d)
+                        
+                        {!! $d->DESCRIPTION !!}
+                    @endforeach
+                @endif
+                
             </div>
         </div>
         <div class="solution" style="color:white;line-height: 2;">
             <span class="title">Solution: </span>
             <pre style="background-color:#1C1A1A;color:white;text-shadow:none">
-                <code class="language-python" >
+                <code class="language-{{$language}}">
+                    
                     @php
                         $title = str_replace(' ', '', $title);
-                        echo "\n".file_get_contents(dirname(__DIR__) . "/Solutions/KahnAlgo.py");
+                        echo "\n".file_get_contents(dirname(__DIR__) . "/Solutions/$title.txt");
                     @endphp
                 </code>
             </pre>

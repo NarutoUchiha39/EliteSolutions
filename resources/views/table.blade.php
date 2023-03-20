@@ -45,9 +45,9 @@
               <td>{{$Question['title']}}</td>
               <td>{{$Question['difficulty']}}</td>
               <td>
-                <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
-                <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
-                <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
+                <a href="/SolutionPage/{{$Question['title']}}-python"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
+                <a href="/SolutionPage/{{$Question['title']}}-java"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
+                <a href="/SolutionPage/{{$Question['title']}}-cpp"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
               </td>
           </tr>
         @else
@@ -57,9 +57,8 @@
             <td>{{$Question['title']}}</td>
             <td>{{$Question['difficulty']}}</td>
             <td>
-              <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
-              <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
-              <a href="/SolutionPage/{{$Question['title']}}"><img  src="{{asset('Assets/images/cpp.png')}}" alt="cpp"></a>
+                <a href="/SolutionPage/{{$Question['title']}}-python"><img  src="{{asset('Assets/images/python.png')}}" alt="python" ></a>
+                <a href="/SolutionPage/{{$Question['title']}}-java"><img  src="{{asset('Assets/images/java.png')}}" alt="java"></a>
             </td>
           </tr>
         @endif         
@@ -74,8 +73,6 @@
     element.addEventListener('click',()=>{
       
             element.parentNode.parentNode.parentNode.cells[2].innerHTML = '<i class="fas fa-check-square fa-2x"></i>'
-            
-        
     }) 
 })
 </script>

@@ -1,0 +1,50 @@
+from ast import List
+"""
+In this question we need to find the edge that causes the edge to be formed in the graph. For that we use the union find method. Union find method is a method that helps us to find the parent of any two nodes in a graph. If two nodes have the same parent that means, the edge between them forms a cycle and we need to return that edge. For instance if we have 1-2 and 1-3 now if we have an edge between 2 and, the union find will tell us that they have same paremt (i.e 1) and that the edge forms a cycle. We can indeed see that the edge forms a cycle. Union find has two methods: Union by rank and union by size. Union find involves building a tree from interconected nodes. For instance if 1,2,3 are connected we get a tree of 1-2, 2-3. Now when we are required to find the parent of 3, we see that it will take some time to reach the root node. That is why we use a method known as pathcompression. We use recursion to assign the parents of each node as the root node, thus reducing the time it takes to reach the root node. When we want to combinetwo trees say 1-2 1-3 1-4 with 5-6, we fid the tree with bigger size(Former one) and combine the smaller tree with the larger tree. Then we use path compression to assign parent of 6 as 1. The time complexity of union find is O(alpha(n)) (amortized time complexity) and aplha(n) is know as ackerman constant. The Union find works only for Undirected graphs. To find Cycle in directed using topological sorting  
+"""
+
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+    
+        parent = [(i) for i in range(len(edges)+1)]
+        size = [1 for i in range(len(edges)+1)]
+        
+        
+        def union(u):
+
+            if(parent[u]==u):
+                return u
+
+            parent[u] = union(parent[u]) # Path compression
+            return parent[u]
+
+        def findPar(u,v):
+
+            par1 = union(u)
+            par2 = union(v)
+            if(par1==par2):
+                return True
+
+            if(size[par1] > size[par2]):
+                parent[par2] = par1
+                size[par1]+=size[par2]
+
+            else:
+                parent[par1] = par2
+                size[par2]+=size[par1]
+            return False
+
+        for i in (edges):
+            
+            if(findPar(i[0],i[1])):
+                return i
+
+
+
+
+
+
+
+            
+
+

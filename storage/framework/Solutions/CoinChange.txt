@@ -1,0 +1,19 @@
+"""
+In tis question we need to find the minimum number of coins that add upto a particular sum. Why use DP instead of greedy? This is because say we have amount 7 and we have in coins [4,3,1,5]. Greedy says choose the biggest number that is 5. After taking 5 the amount that we have left to get 7 as total is 2. We can get 2 by taking 2 ones that would lead us to get a total of 3 coins to attain the sum of 7. But by observing the array we realise that the sum 7 can be obtained from only 2 coins(4,3) instead of 3. Thus we have to use Dynamic Programing. So first we a take a DP array initialise it with infinity as there might be some amounts that cant be reached with the given coins in the array. Now we run two nested for loops. The outer for loop is for getting all possible amounts from 0 to the required amount. The outer for loop then loops through each coin in the coins array to see if the sum of the outer for loop is attainable. If the sum is attainable, we take the minimum of the number of coins through which the sum is attainable for all the coins availale in the coins array. If any sum is not attainable, we leave it as inf. By doing the above procedure we get the minimum number of coins equired to get the given sum
+
+"""
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        
+        dp = [float("inf") for i in range(amount+1)]
+        if(amount==0):
+            return 0
+        coins.sort()
+        for i in range(amount+1):
+            for j in coins:
+                if(i==j): # If the amount that we are searching in the outer for loop is already present in the given coins array then only 1 coin is required to get the sum
+                    dp[i]=1
+                if(i>j):
+                    dp[i] = min(1+dp[i-j],dp[i]) # We add 1 because the curent coin is available in the coins array and is selected. So to find the sum we need the selected coin(1) + its compliment with sum (amount - current value)
+            
+        return dp[amount] if(dp[amount]!=float("inf")) else -1

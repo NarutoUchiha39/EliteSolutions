@@ -1,0 +1,41 @@
+from ast import List
+
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]):
+        rows = len(grid)
+        columns = len(grid[0])
+        visited = [[0]*columns for i in range(rows)]
+        total_islands = 0
+        
+        def BFS(point):
+            queue = []
+            queue.append(point)
+            visited[point[0]][point[1]] = 1
+            directions = [[0,1],[0,-1],[1,0],[-1,0]]
+            while(queue):
+                size = len(queue)
+                for i in range(size):
+                    cur_point = queue.pop(0)
+                    cur_x = cur_point[0]
+                    cur_y = cur_point[1]
+                    
+
+                    for j in directions:
+                        new_x = cur_x+j[0]
+                        new_y = cur_y+j[1]
+                        
+                        if((new_x>=0 and new_x &lt rows) and (new_y>=0 and new_y &lt columns) and grid[new_x][new_y]=='1'):
+                            if(visited[new_x][new_y]!=1):
+                                visited[new_x][new_y] =1
+                                queue.append([new_x,new_y])
+                    
+           
+        
+        for i in range(rows):
+            for j in range(columns):
+                if(visited[i][j]!=1 and grid[i][j]=='1'):
+                    BFS([i,j])
+                    total_islands+=1
+
+        return total_islands

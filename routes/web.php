@@ -34,7 +34,9 @@ Route::get('/SolutionPage/{id}',function($id){
         $likes=array(0=>new stdClass());
         $likes[0]->liked = 0;
         $likes[0]->disliked = 0;
-
+        $array = explode('-',$id);
+        $id = $array[0];
+        $language =$array[1];
         if(Session::has('loginId')){
                 $name = Session::get('Email');
                 $title = $id;
@@ -49,7 +51,7 @@ Route::get('/SolutionPage/{id}',function($id){
               
           
         }
-        $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' "),"likes"=>$likes];
+        $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' "),"likes"=>$likes,"language"=>$language];
         DB::disconnect('mysql');
        return view('SolutionPage',$var);
 

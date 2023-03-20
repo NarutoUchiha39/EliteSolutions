@@ -1,0 +1,86 @@
+import java.util.* ;
+import java.io.*;
+
+
+/*
+In this Question we need to find the maximum profit we can get by taking items that are dividable from a knap sack. The greedy approach can be used here. first we take the profit by weight ratio of items present in the array and sort them in descending order. Next we take those objects that have Maximum Profit by Weight Ratio. We take full weights of those objects and then multiply it with with their profit by weight ratio to yield the total profit. Next if we ever come to a situation where on adding a particular object to our bag, increases weight to value more than the maximum capacity it can hold, We take fracton of that object and discontinue our foor loop since our bag will be full at that point  
+
+Example Input:
+12(Total number of objects) 100(Total bag weight)
+22 37 2 82 85 17 1 2 42 22 42 57
+22 37 2 82 85 17 1 2 42 22 42 57
+
+ */
+class Pair
+{
+    int weight;
+    int value;
+    Pair(int weight, int value)
+    {
+        this.weight = weight;
+        this.value = value;
+    }
+}
+
+class Store implements Comparator<Store>
+{
+    double ProfitByWeight;
+    int weight;
+    int value;
+    Store(Pair o)
+    {
+        this.weight = o.weight;
+        this.value = o.value;
+        this.ProfitByWeight = (double) o.value/(double) o.weight;
+    }
+    Store(){}
+    @Override
+    public int compare(Store o1, Store o2) {
+        return Double.compare(o2.ProfitByWeight, o1.ProfitByWeight);
+    }
+
+    @Override
+    public String toString() {
+        return ""+this.ProfitByWeight;
+    }
+}
+class Solution1
+{
+    public static double maximumValue(Pair[] items, int n, int w)
+    {
+        double totalProfit = 0d;
+        int weight = 0;
+        Store [] stores = new Store[n];
+        for (int i = 0; i < n; i++)
+        {
+            stores[i] = new Store(items[i]);
+        }
+
+        Arrays.sort(stores,new Store());
+        for (int i = 0; i &lt stores.length; i++)
+        {
+            if(weight+stores[i].weight &lt w)
+            {
+                totalProfit+=stores[i].ProfitByWeight*stores[i].weight;
+                weight+=stores[i].weight;
+            }
+            else
+            {
+                totalProfit+=stores[i].ProfitByWeight*(w-weight);
+                break;
+
+            }
+        }
+        return totalProfit;
+    }
+}
+
+public class FractionalKnapsack
+{
+    public static void main(String[] args)
+    {
+        Pair[] item = {new Pair(22,22),new Pair(37,37),new Pair(2,2),new Pair(82,82),new Pair(85,85),new Pair(17,17),new Pair(1,1),new Pair(2,2),new Pair(42,42),new Pair(22,22),new Pair(42,42),new Pair(57,57)};
+
+        System.out.println(Solution1.maximumValue(item,12,100));
+    }
+}
