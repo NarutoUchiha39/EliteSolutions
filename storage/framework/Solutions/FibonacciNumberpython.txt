@@ -1,0 +1,16 @@
+"""
+In Fibonacci Numbers we notice that when the total number of terms become very large, the ratio between the successive terms narrows to approximately 1.618. This number is also known as the golden ratio. The series then approximately represents a geometric progression. This is applicable only for terms >= 12. Below that the rule doesn't hold. Now consider the fibonacci recursion relation F(n) = F(n-1) + F(n-2). Suppose that n is large we can approximately write F(n) as a*r**(n) similarly we can write F(n-1) as a*r**(n-1) and F(n-2) as a*r**(n-2) and then replacing all the terms in the above equation and cancelling out a we get r**n = r**(n-1) + r**(n-2) now dividing by r**n we get 1 = r**(-1) + r**(-2). Multiply by r**2 to get r**2 = r**1 + 1 the roots are then found to be 1.618 and -0.618. Thus we get the golden ratio. To fin any term general formula: ( (1 + √(5))**n - (1 - √(5))**n )/ ( 2**n * √(5)**n ). In this question we find that there are many repeated subproblems and thus we can use memoization and tabulation. Using taulation reduces space to O(1) and time to O(N). Memoization has time of O(N) and space of O(N) + recursion stack space
+"""
+class Solution:
+    def fib(self, n: int) -> int:
+        if(n==0):
+            return 0 
+        one = 1
+        two = 1
+        for i in range(2,n):
+            one = two + one
+            two,one = one,two
+
+        return two
+
+
