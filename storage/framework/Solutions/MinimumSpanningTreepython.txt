@@ -1,0 +1,63 @@
+from collections import defaultdict
+from heapq import *
+"""
+Using prim's Algorithm:
+
+Why prim's algo fails for directed graphs ?
+For Prim, this graph is problematic.
+ 5
+  --> a
+ /   /
+s   1|
+ \   v
+  --> b
+ 3
+
+We'll take s->b of cost 3, but we really wanted s->a of cost 5 and a->b of cost 1.
+We can't go from b to a and if it was undirected then we could go from b to a resulting in spanning tree
+
+Time complexity: E log V same explaination as Dijkstra's 
+"""
+class Solution:
+    
+    #Function to find sum of weights of edges of the Minimum Spanning Tree.
+    def spanningTree(self, V, adj):
+        
+        graph = defaultdict(list)
+        for i in range(len(adj)):
+             
+            for j in adj[i]:
+                graph[i].append(j)
+
+        heap = [[0,0,0]]
+        visited = set()
+        total_cost = 0
+        dict1 = defaultdict(list)
+        while(len(visited)!=V):
+            element = heappop(heap)
+            cost = element[0]
+            point = element[1]
+            parent = element[2]
+            if(point in visited):
+                continue
+            total_cost+=cost
+            if(point!=0):
+                dict1[parent].append([point,cost])
+            visited.add(point)
+            for i in graph[point]:
+                if(i[0] not in visited):
+                    heappush(heap,[i[1],i[0],point])
+        print("MST is: ")
+        print()
+        for i in dict1:
+            print(f"{i}----->{i[0]} with weight {i[1]}")
+        return total_cost
+        
+
+        
+
+
+        
+        
+
+        

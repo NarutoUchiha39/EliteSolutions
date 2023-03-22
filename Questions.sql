@@ -43,3 +43,32 @@
 --      "Greedy",
 --      "Medium");
 
+
+--- Prim's Algorithm
+-- insert into questions(DESCRIPTION,title,category,difficulty) values("Given a weighted, undirected and connected graph of V vertices and E edges. The task is to find the sum of weights of the edges of the Minimum Spanning Tree.
+
+-- Example 1:
+
+-- Input:
+-- 3 3
+-- 0 1 5
+-- 1 2 3
+-- 0 2 1
+
+-- Output:
+-- 4
+
+-- Your task:
+-- Since this is a functional problem you don't have to worry about input, you just have to complete the function  spanningTree() which takes number of vertices V and an adjacency matrix adj as input parameters and returns an integer denoting the sum of weights of the edges of the Minimum Spanning Tree. Here adj[i] contains a list of lists containing two integers where the first integer a[i][0] denotes that there is an edge between i and a[i][0][0] and second integer a[i][0][1] denotes that the distance between edge i and a[i][0][0] is a[i][0][1].
+
+-- In other words , adj[i][j] is of form  { u , wt } . So,this denotes that i th node is connected to u th node with  edge weight equal to wt.
+
+--  
+
+-- Expected Time Complexity: O(ElogV).
+-- Expected Auxiliary Space: O(V2).
+-- ",
+--      "Minimum Spanning Tree",
+--      "Greedy",
+--      "Medium");
+
