@@ -82,7 +82,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
                     
                     @php
                         $title = str_replace(' ', '', $title);
-                        echo "\n".file_get_contents(dirname(__DIR__) . "/Solutions/$title.txt");
+                        echo "\n".file_get_contents(dirname(__DIR__) . "/Solutions/$title$language.txt");
                     @endphp
                 </code>
             </pre>
