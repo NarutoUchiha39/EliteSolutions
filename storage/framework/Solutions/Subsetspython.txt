@@ -1,0 +1,24 @@
+from ast import List
+"""
+In this question we need to print all the possible subsets of a given set. First we need to realise that this is a problem where at each stage we have two options: either accept number at a particular index or reject the number at that index and move on to the next number (Pick or not pick that is the question). When we decide to pick a number we append it to the list. When we dont choose a number we simply increment the index pointer to point to the next number and thus ignore he previous number. When the index goes beyonf the limits of the list we append the temporary list to the final list that we ar to return. Since at each stage we have two options: include or not include the total number of nodes at each level of recursion tree will be 2**n where n is the level number. This solution is a decreasing problem where we go on adding a element to the temporary list at a time thereby reducing the available number of elements to be added by 1. Now we have total cost as 2 + 4 + 6 . . . n that is 2**n time complexity 
+"""
+class Solution:
+    def subsets(self, nums: list[int]) -> list[list[int]]:
+
+        list1 = []
+        def recursion(index,temp:list):
+            if(index>=len(nums)):
+                list1.append(temp.copy())
+                return
+
+            temp.append(nums[index])
+            recursion(index+1,temp)
+            temp.remove(nums[index])
+            recursion(index+1,temp)
+
+        recursion(0,[])
+        return list1
+            
+
+obj = Solution()
+print(obj.subsets([1,2,3]))

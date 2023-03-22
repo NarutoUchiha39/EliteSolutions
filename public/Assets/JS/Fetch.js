@@ -33,7 +33,7 @@ const fetchDailyCodingChallenge = async (iterator) => {
 }
 async function Call() 
 {
-    let questions = ['number-of-islands','course-schedule','redundant-connection','coin-change','longest-common-subsequence'] 
+    let questions = ['number-of-islands','course-schedule','redundant-connection','coin-change','longest-common-subsequence','subsets'] 
 
     for (const iterator of questions) 
     {
