@@ -1,0 +1,44 @@
+"""
+In this question we are required to find the order in which the tasks in a single threaded CPU will run. So first we use enumeration in order to store each index of each task in the list. This will be required when we will want to print the final order of execution. So after sorting the list in ascending order of enqueue time, we assign the total processing time as the processing time of element with east enqueue time. From that point we run a for loop that checks if while the current task is being processed, what all tasks can be enqueued ?. Those tasks which have enqueue time less than the current processing time will be enqueued. These tasks are enqueued according to their processing time in the minHeap. Cosider a situation when all the tasks present in the minHeap have been exeuted and the next task requires an enqueue time much greater than the total processing time. In that case the time has to be fast forwarded to the next task and the process is repeated 
+
+"""
+
+from heapq import *
+class Solution:
+    def getOrder(self, tasks: list[list[int]]) -> list[int]:
+        
+        for i,t in enumerate(tasks):
+            t.append(i)
+        tasks.sort(key=lambda t:t[0])
+
+        cur_time = tasks[0][0]
+        res,minHeap = [],[]
+        tot = 0
+        
+        while(tot<len(tasks) or minHeap):
+            
+            while(tot<len(tasks) and cur_time>=tasks[tot][0]):
+                heappush(minHeap,[tasks[tot][1],tasks[tot][2]])
+                tot+=1
+
+            if(minHeap):
+
+                time,index = heappop(minHeap)
+                cur_time+=time
+                res.append(index)
+
+            else:
+                cur_time = tasks[tot][0]
+        return res
+            
+
+
+            
+
+        
+           
+
+            
+
+        
+        

@@ -54,10 +54,53 @@ class Solution:
         return total_cost
         
 
-        
+"""
+Using Kruskal's algorithm :
+"""
+#User function Template for python3
+from collections import *
+from heapq import *
+class Solution:
+    
+    #Function to find sum of weights of edges of the Minimum Spanning Tree.
+    def spanningTree(self, V, adj):
+        heap = []
+        for i in range(len(adj)):
+            for j in adj[i]:
+                heappush(heap,[j[1],[i,j[0]]])
 
+        cost = 0
+        visited = set()
+    
+        parent  = [i for i in range(V)]
+        size = [1 for i in range(V)]
+        def Union(u):
+            if(parent[u] == u):
+                return parent[u]
 
-        
+            parent[u] = Union(parent[u])
+            return parent[u]
+
+        def findPar(u:int,v:int)->bool:
+            par1 = Union(u)
+            par2 = Union(v)
+            if(par1==par2):
+                return True
+
+            if(size[par1] > size[par2]):
+                parent[par2] = parent[par1]
+                size[u]+=size[v]
+            
+            else:
+                parent[par1] = parent[par2]
+                size[v]+=size[u]
+            return False                
+        while heap:
+            element = heappop(heap)
+            if(not findPar(element[1][0],element[1][1])):
+                cost += element[0]
+            
+        return cost
         
 
         

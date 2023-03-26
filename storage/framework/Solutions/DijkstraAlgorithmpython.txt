@@ -42,8 +42,8 @@ class Solution:
             visited.add(point)
             for i in graph[point]:
                 if(i[0] not in visited):
-                    if(costi[1] &lt dist[i[0]]):
-                        dist[i[0]] = costi[1]
+                    if(cost+i[1] &lt dist[i[0]]):
+                        dist[i[0]] = cost+i[1]
                         heappush(heap,[costi[1],i[0]])
             print(dist,heap)
        

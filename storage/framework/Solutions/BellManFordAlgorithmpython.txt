@@ -1,0 +1,32 @@
+"""
+Bellma Ford algorithm is Single Source Shortest Path algorithm. It differes from Dijkstra's algorithm in such a way that, it gives correct answer for -ve edge weights(not for -ve edge cycles). This is beacause unlike dijkstra's Bellman Ford runs for all the edges of each vertex n-1 times. Thus all possible combinations are tested unlike dijkstra's where i a vertex is selcted, it is not tested again. Bellman Ford doesn't work for -ve edge cycle but helps detect it.
+After n-1 iterations of Bellman Ford, if we relax all the edges once again, then the distance array should remain same. In case of -ve edge cycle the distance array gets modified once again thus proving that -ve edge cycle is present. Bellman Ford uses the same relaxation formula as dijkstra's . Time complexity is E*V. For complete graph time complexity : V**3
+"""
+
+class Solution:
+    # Function to construct and return cost of MST for a graph
+    # represented using adjacency matrix representation
+    '''
+    V: nodes in graph
+    edges: adjacency list for the graph
+    S: Source
+    '''
+    def bellman_ford(self, V, edges, S):
+        
+       
+        dist = [int(1e8) for i in range(V)]
+        dist[S] = 0
+        
+        for i in range(V-1): # Runs for V times
+            for j in edges: # Runs for E times so total time V*E
+                if(dist[j[0]]!=float("inf")):
+                    if(dist[j[0]]+j[2] &lt dist[j[1]]):
+                        dist[j[1]] = dist[j[0]]+j[2]
+                        
+        
+        for j in edges:
+                if(dist[j[0]]!=float("inf")):
+                    if(dist[j[0]]+j[2] &lt dist[j[1]]):
+                        return [-1]
+                        
+        return dist

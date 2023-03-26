@@ -1,0 +1,48 @@
+#User function Template for python3
+
+"""
+In this qustion we are required to find the new ordering of the letters in the alien dictionary. According to the rules the words are sorted in lexicographical order. If two words have same letters then we have to traverse both the words till : 1) Either one word gets exhausted and other still hasnt exhausted. In that case if the word that hasn't exhausted is the first word then we have to return NULL as according to th question if two words have the same characters then the one with shorter length comes lexicographically first. 2) We have found a point where the letters varry. In that case the first letter should be followed by  the second letter in the new alien dictioary and we add the first character as key and second character as value in our graph. Next we have to traverse thr graph and either topologically sort it or apply DFS. In our case we use DFS. In the DFS logic we keep a visited array that tells us the characters that are visited in our current path. In case a character is visited again in the current path then it means a cycle exists. After the current path has been exhausted and no cycle has ben found, we mark asll the elements in the current path as not visited since these letters will be used by DFS of other characters. In the DFS logic, after we reach the end of string we start appending the characters to our result and reverse the result. We have to do it in reverse order as if we start appending characters from the beginning we might end up with wrong order. Ex: a->b->c and a is also connected to c.In that case if ww go in forward ordfer we can have a->c->b as one order as well as a->b->c as another order. But if we substitute in backward direction the only order we will get is: c->b->a which is reverse of the required order 
+"""
+
+class Solution:
+    def findOrder(self,dictionary, N, K):
+        
+        graph = {c:set() for i in dictionary for c in i}
+        
+        for i in range (len(dictionary)-1):
+            minLength = min(len(dictionary[i]),len(dictionary[i+1]))
+            if(len(dictionary[i])==len(dictionary[i+1]) and dictionary[i][:minLength] == dictionary[i+1][:minLength]):
+                return ""
+                
+            for j in range(minLength):
+                if(dictionary[i][j] != dictionary[i+1][j]):
+                    graph[dictionary[i][j]].add(dictionary[i+1][j])
+                    break
+                
+        visited = {}
+        res = []
+        
+        def reccur(c):
+            if(c in visited):
+                return visited[c]
+                
+            visited[c] = True
+            for i in graph[c]:
+                if(reccur(i)):
+                    return True
+                    
+            visited[c] = False
+            res.append(c)
+            
+        for i in graph:
+            if(reccur(i)):
+                return ""
+                
+        res.reverse()
+        return "".join(res)
+            
+                    
+                
+
+
+

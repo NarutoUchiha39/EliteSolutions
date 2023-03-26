@@ -1,0 +1,27 @@
+/*
+In this question we need to find the maximum profit we can earn by selling stocks. If we encounter a situation such that the cost of left profit minus the cost of right profit is less than zero, it means that we are havig a profit by selling stocks at that day. So we take the max of earning profit by selling stocks at that day and the current stocks. In case the profit is +ve it means that cost at second day > cost at first day hence we are at a loss. As a result move the left pointer ahead to the next nunmber 
+
+*/
+
+class Solution {
+    public int maxProfit(int[] prices) 
+    {
+        int total_cost = 0;
+        int left = 0;
+        int right = 0;
+        while(right &lt prices.length)
+        {
+            if(prices[left]-prices[right] &lt= 0){
+                total_cost = Math.max(total_cost,prices[right]-prices[left]);
+                right+=1;
+            }
+
+            else{
+                left+=1;
+            }
+        }
+
+        return total_cost;
+        
+    }
+}

@@ -1,0 +1,29 @@
+from collections import defaultdict
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        if(not s):
+            return 0
+        hashMap = {}
+        left = 0
+        right = 0
+        length = 0
+        while(right<len(s)):
+            if(s[right] not in hashMap):
+                hashMap [s[right]] = right
+                right+=1
+            else:
+               while(s[right] in hashMap and left<=right):
+                del s[left]
+                left+=1
+            
+            length = max(len(hashMap),length)
+        
+        return length
+
+
+            
+
+            
