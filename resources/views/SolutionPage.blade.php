@@ -89,6 +89,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
         </div>
     </div>
     <script>
+        document.title = "{!! $title !!}"
         function checkLikes(likes) 
         {
 

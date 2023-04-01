@@ -1,0 +1,19 @@
+#Create{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    top:100px;
+    flex-direction:column;
+
+}
+
+label
+{
+    margin-right:20px;
+    color:white
+}
+
+.Input{
+    margin-bottom: 20px;
+}

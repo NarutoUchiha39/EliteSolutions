@@ -1,0 +1,10 @@
+p{
+    color: white;
+}
+.sideBar p{
+    cursor: pointer;
+}
+.rooms{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}

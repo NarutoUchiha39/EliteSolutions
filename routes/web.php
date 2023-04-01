@@ -6,6 +6,7 @@ use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Discussion;
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
 Route::get('/signup',[UserAuth::class,'Register']);
@@ -85,3 +86,10 @@ Route::post('/Likes',function(){
         return 'false';
        
 });
+
+Route::get('/Discussion',[Discussion::class,'discuss']);
+Route::get('/Discussion/{id}',[Discussion::class,'SpecificRoom']);
+Route::get('/CreateRoom',[Discussion::class,'CreateRoom'])->name('CreateRoom');
+Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
+Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
+Route::post('/update/{id}',[Discussion::class,'update'])->name('update');

@@ -28,7 +28,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             <h1 class="Text">Code</h1>
             <pre style="background-color:#1C1A1A;color:white;text-shadow:none">
                 <code id="Tf" class="language-python">
-                    ""
+                    
                 </code>
             </pre>
         </div>
