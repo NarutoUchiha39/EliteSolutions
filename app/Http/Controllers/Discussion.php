@@ -12,7 +12,6 @@ class Discussion extends Controller
     {
         $rooms = DB::select('select * from rooms');
         $topics = DB::select('select * from Topics');
-       
         return view('Discussion.Discussion',['rooms'=>$rooms,'topics'=>$topics]);
     }
 
@@ -92,8 +91,15 @@ class Discussion extends Controller
         return redirect('/Discussion');
     }
 
-    public function deleteRoom()
+    public function deleteRoom($id)
     {
-        
+        $array = explode('-',$id);
+        $id = $array[0];
+        $topic = $array[1];
+       
+        DB::update("delete from rooms where name = '$id'");
+        DB::update("update topics set total_rooms = total_rooms -1 where topic = '$topic'");
+        DB::update("delete from topics where total_rooms = 0");
+        return redirect()->back()->with('status','Deleted room successfully !!');
     }
 }

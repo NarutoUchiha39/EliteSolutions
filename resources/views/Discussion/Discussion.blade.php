@@ -33,14 +33,12 @@
                     <small style="color:white">Topic : </small><small style="color:white" class="topic">{{$room->Topic}}</small>
                     @if ($room->Host == Session::get('Email'))
                         <button><a href="/updateRoom/{{$room->Name}}">Update thread</a> </button>
-                        <button><a href="">Delete thread</a> </button>
+                        <button><a href="/deleteRoom/{{$room->Name}}-{{$room->Topic}}">Delete thread</a> </button>
                     @endif
-                    
-                    
                     <hr>
                 </div>
-                @endforeach
-            
+            @endforeach
+
         </div>
     </div>
 <script>

@@ -93,3 +93,4 @@ Route::get('/CreateRoom',[Discussion::class,'CreateRoom'])->name('CreateRoom');
 Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
 Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
 Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
+Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
