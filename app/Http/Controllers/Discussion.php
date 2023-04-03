@@ -14,8 +14,9 @@ class Discussion extends Controller
     public function discuss()
     {
         $rooms = DB::select('select * from rooms');
+        $topics = DB::select('select * from Topics');
        
-        return view('Discussion.Discussion',['rooms'=>$rooms]);
+        return view('Discussion.Discussion',['rooms'=>$rooms,'topics'=>$topics]);
     }
 
     public function SpecificRoom($id)

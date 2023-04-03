@@ -5,7 +5,7 @@
 
 <div class="search" style="width:100%;position: relative;top:100px;display:flex;justify-content:center;align-items:center;">
     <div class="bar">
-      <input type="text"  placeholder="Search Questions" id="text" onkeyup="SearchBar(this)">
+      <input type="text"  placeholder="Search Questions" id="text" onkeyup="globalSearch(this)">
       <i class="fa-solid fa-filter" style="color: greenyellow;margin-right:15px;cursor:pointer" onclick="filter()"></i>
       <button id="btn"><img src="{{asset('/Assets/images/search.png')}}"/></button>
       
@@ -16,7 +16,7 @@
         <div class="sideBar">
             <p >Topics :</p> 
             <p onclick="Search(this)">All</p>
-           @foreach ($rooms as $room)
+           @foreach ($topics as $room)
                <p onclick="Search(this)">{{$room->Topic}}</p>
            @endforeach
         </div>
@@ -25,8 +25,8 @@
         
             @foreach ($rooms as $room)
             <div class="Rooms">
-                    <p style="color:white">@ {{$room->Host}}</p>
-                    <p style="color:white"> <a href="/Discussion/{{$room->Name}}" style="color:white"> {{$room->Name}}</a></p>
+                    <p style="color:white" class="Host">@ {{$room->Host}}</p>
+                    <p style="color:white"> <a href="/Discussion/{{$room->Name}}" style="color:white" class="RoomName"> {{$room->Name}}</a></p>
                     <small style="color:white">Topic : </small><small style="color:white" class="topic">{{$room->Topic}}</small>
                     @if ($room->Host == Session::get('Email'))
                         <button><a href="/updateRoom/{{$room->Name}}">Update thread</a> </button>
@@ -42,6 +42,47 @@
     </div>
 <script>
     document.title = 'Discuss'
+    function Search(element)
+    {
+        search = element.textContent
+        console.log(search);
+     
+        collection = document.getElementsByClassName('topic')
+       
+        for (let index = 0; index <collection.length; index++) 
+        {
+            if(collection[index].textContent.indexOf(search)>-1){
+                console.log(collection[index].parentNode);
+                collection[index].parentNode.style.display = ''
+            }
+            else
+            {
+                collection[index].parentNode.style.display = 'none'
+            }
+        }
+    }
+
+    function globalSearch(element) 
+    {
+       let collection = document.getElementsByClassName("Rooms")
+       let toBeSearched = element.value
+
+       for (let index = 0; index < collection.length; index++)
+       {
+
+            let Topic = collection[index].getElementsByClassName("topic")[0].textContent
+            let Host = collection[index].getElementsByClassName("Host")[0].textContent
+            let RoomName = collection[index].getElementsByClassName("RoomName")[0].textContent
+            if(Topic.indexOf(toBeSearched)>-1 || Host.indexOf(toBeSearched)>-1 || RoomName.indexOf(toBeSearched)>-1)
+            {
+                collection[index].style.display = ''
+            }
+            else
+            {
+                collection[index].style.display = 'none'
+            }
+       }
+    }
     
 </script>
 @endsection
