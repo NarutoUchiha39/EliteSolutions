@@ -17,7 +17,10 @@
             <p >Topics :</p> 
             <p onclick="Search(this)">All</p>
            @foreach ($topics as $room)
-               <p onclick="Search(this)">{{$room->Topic}}</p>
+           <div class="Topics" style="display:flex">
+               <p onclick="Search(this)" style="margin-right: 20px">{{$room->Topic}}</p>
+               <p>{{$room->total_rooms}}</p>
+            </div>
            @endforeach
         </div>
         <div class="container">
@@ -65,17 +68,18 @@
     function globalSearch(element) 
     {
        let collection = document.getElementsByClassName("Rooms")
-       let toBeSearched = element.value
+       let toBeSearched = element.value.toLowerCase()
 
        for (let index = 0; index < collection.length; index++)
        {
 
-            let Topic = collection[index].getElementsByClassName("topic")[0].textContent
-            let Host = collection[index].getElementsByClassName("Host")[0].textContent
-            let RoomName = collection[index].getElementsByClassName("RoomName")[0].textContent
+            let Topic = collection[index].getElementsByClassName("topic")[0].textContent.toLowerCase()
+            let Host = collection[index].getElementsByClassName("Host")[0].textContent.toLowerCase()
+            let RoomName = collection[index].getElementsByClassName("RoomName")[0].textContent.toLowerCase()
             if(Topic.indexOf(toBeSearched)>-1 || Host.indexOf(toBeSearched)>-1 || RoomName.indexOf(toBeSearched)>-1)
             {
                 collection[index].style.display = ''
+                console.log(collection[index]);
             }
             else
             {
