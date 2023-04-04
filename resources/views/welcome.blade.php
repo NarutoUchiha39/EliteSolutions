@@ -1,6 +1,6 @@
 @extends('Layouts.Master')
 @section('content')
-<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.19.0/core.min.js" integrity="sha512-t4NGjfaRaGCjmiTGBsiG3w8FCp8ZY7dPlwZAXfeoGPARUT/rt3OP0NpQkblSgZy/2R8vPTXiEcq/zcWIJ8NusQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="{{asset('/Assets/CSS/Home.css')}}">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <section id="title">
