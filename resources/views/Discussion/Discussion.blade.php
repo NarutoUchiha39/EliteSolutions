@@ -45,15 +45,14 @@
     document.title = 'Discuss'
     function Search(element)
     {
-        search = element.textContent
-        console.log(search);
-     
+        search = element.textContent.toLowerCase()
+       
         collection = document.getElementsByClassName('topic')
        
         for (let index = 0; index <collection.length; index++) 
         {
-            if(collection[index].textContent.indexOf(search)>-1){
-                console.log(collection[index].parentNode);
+            if(collection[index].textContent.toLowerCase().indexOf(search)>-1){
+               
                 collection[index].parentNode.style.display = ''
             }
             else

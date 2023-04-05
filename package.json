@@ -15,6 +15,7 @@
     "dependencies": {
         "aos": "^3.0.0-beta.6",
         "mysql": "^2.18.1",
+        "tailwind": "^4.0.0",
         "typewriter-effect": "^2.19.0"
     }
 }
