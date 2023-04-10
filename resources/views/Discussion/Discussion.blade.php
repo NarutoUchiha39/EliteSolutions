@@ -10,7 +10,7 @@
       <button id="btn"><img src="{{asset('/Assets/images/search.png')}}"/></button>
       
     </div>
-    
+     
   </div>
     <div class="rooms" style="position: relative;top:100px;margin-top:50px">
         <div class="sideBar">

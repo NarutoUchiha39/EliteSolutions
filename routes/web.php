@@ -7,6 +7,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Discussion;
+use App\Mail\request_problem;
+use Illuminate\Http\Request;
+
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
 Route::get('/signup',[UserAuth::class,'Register']);
@@ -89,8 +92,28 @@ Route::post('/Likes',function(){
 
 Route::get('/Discussion',[Discussion::class,'discuss']);
 Route::get('/Discussion/{id}',[Discussion::class,'SpecificRoom']);
-Route::get('/CreateRoom',[Discussion::class,'CreateRoom'])->name('CreateRoom');
+Route::get('/RequestProblem',[Discussion::class,'CreateRoom'])->name('RequestProblem');
 Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
 Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
 Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
 Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
+Route::post('/request',function(Request $request){
+        if($request->Description){
+                $Description = $request->Description;
+        }
+
+        else{
+                $Description = '';
+        }
+
+        if($request->url){
+                $url = $request->url;
+        }
+
+        else
+        {
+                $url = '';
+        }
+
+        Mail::to('prolaraveldevelopers@gmail.com')->send(new request_problem($url,$Description,$request->Name,$request->category));
+})->name('request');

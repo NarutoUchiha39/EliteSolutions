@@ -23,7 +23,12 @@ class Discussion extends Controller
 
     public function CreateRoom()
     {
-        return view('Discussion.CreateRoom');
+        if(Session::has('loginId'))
+        {
+            return view('RequestProblem');
+        }
+
+        return redirect('/login');
     }
 
     public function RegisterRoom(Request $request)

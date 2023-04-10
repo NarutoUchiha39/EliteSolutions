@@ -1,19 +1,99 @@
-#Create{
+*
+{
+    font-size: large;
+}
+body{
+    background-image: url(https://wallpaper.dog/large/20554930.jpg);
+    background-repeat: no-repeat;
+}
+#Create
+{
     display: flex;
     justify-content:center;
     align-items:center;
     position: relative;
-    top:100px;
+    top:120px;
     flex-direction:column;
-
+    height: 70%;
+    left: 2%;
 }
-
+.input
+{
+    position: relative;
+    top: 20px;
+    left: 23%;
+}
+.con input
+{
+    background-color: white;
+    font-size: large;
+    border-radius: 5px;
+    color: black;
+    border: 1px solid white;
+   outline: none;
+   letter-spacing: 2px;
+   resize: none;
+   height: 25px;
+}
+#RoomName{
+    position: relative;
+    left: 70px;
+}
+textarea
+{
+    background-color: white;
+    font-size: large;
+    border-radius: 10px;
+    color: black;
+    border: 1px solid white;
+   outline: none;
+   letter-spacing: 2px;
+   resize: none;
+   
+}
+#topic
+{
+    position: relative;
+    left:5%
+}
+.con{
+    border-radius: 20px;
+    width: 50%;
+    background-color: #cc2c67;
+}
 label
 {
+    position: relative;
     margin-right:20px;
-    color:white
+    color:white;
+}
+#topic1{
+    left: 3%;
+}
+#Description{
+    left:3%
+}
+#Room{
+    left: 3%;
+}
+.Input{
+    margin-top: 3%;
+    margin-bottom: 20px;
+    margin-left: -50px;
+}
+button
+{
+    font-size: medium;
+    position: relative;
+    left:-50px;
+    outline: none;
+    background-color: #FF4500;
+    border: 1px solid #cc2c67;
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
 }
 
-.Input{
-    margin-bottom: 20px;
-}

@@ -24,7 +24,7 @@
                         <a href="/SendSolution" style="margin-bottom:40px;">Send solution</a>
                     </li>
                     <li>
-                        <a href="">Request problems</a>
+                        <a href="/RequestProblem">Request problems</a>
                     </li>
                     <li>
                         <a href="/ContactUs">Feedback</a>
