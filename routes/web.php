@@ -116,4 +116,5 @@ Route::post('/request',function(Request $request){
         }
 
         Mail::to('prolaraveldevelopers@gmail.com')->send(new request_problem($url,$Description,$request->Name,$request->category));
+        return redirect()->back()->with('status','success');
 })->name('request');

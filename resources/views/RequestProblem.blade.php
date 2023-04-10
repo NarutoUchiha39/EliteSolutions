@@ -2,18 +2,13 @@
 @section('content')
 
 <link rel="stylesheet" href="{{Asset('/Assets/CSS/CreateRoom.css')}}"/>
-        @if ($errors->any())
-        <div class="alert alert-danger" style="top:100px">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    @php
-                       echo "<script>alert('$error')</script>"
-                    @endphp
-                
-                @endforeach
-            </ul>
-        </div>
+
+        @if (Session::has('status'))
+            @php
+                echo "<script>alert('Mail sent successfully')</script>"
+            @endphp
         @endif
+
     <form method="post" action="{{Route('request')}}" id="Create">
         @csrf
         <div class="con">
@@ -44,5 +39,15 @@
                 </div>
          </div>
     </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 @endsection
