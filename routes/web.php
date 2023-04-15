@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Discussion;
 use App\Mail\request_problem;
 use Illuminate\Http\Request;
+use App\Mail\ForgetPassword;
 
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
@@ -90,13 +91,13 @@ Route::post('/Likes',function(){
        
 });
 
-Route::get('/Discussion',[Discussion::class,'discuss']);
-Route::get('/Discussion/{id}',[Discussion::class,'SpecificRoom']);
+// Route::get('/Discussion',[Discussion::class,'discuss']);
+// Route::get('/Discussion/{id}',[Discussion::class,'SpecificRoom']);
 Route::get('/RequestProblem',[Discussion::class,'CreateRoom'])->name('RequestProblem');
-Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
-Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
-Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
-Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
+// Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
+// Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
+// Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
+// Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
 Route::post('/request',function(Request $request){
         if($request->Description){
                 $Description = $request->Description;
@@ -118,3 +119,11 @@ Route::post('/request',function(Request $request){
         Mail::to('prolaraveldevelopers@gmail.com')->send(new request_problem($url,$Description,$request->Name,$request->category));
         return redirect()->back()->with('status','success');
 })->name('request');
+
+Route::post('/ForgetPassword',function(Request $request)
+{
+        Mail::to($request->Email)->send(new ForgetPassword(['title'=>'Request to recover password']));
+        return redirect()->back()->with('status','success');
+});
+
+Route::get('/FPV',function(){return view('ForgetPasswordView');});
