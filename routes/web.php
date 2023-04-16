@@ -10,6 +10,7 @@ use App\Http\Controllers\Discussion;
 use App\Mail\request_problem;
 use Illuminate\Http\Request;
 use App\Mail\ForgetPassword;
+use Illuminate\Support\Facades\Hash;
 
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
@@ -122,8 +123,43 @@ Route::post('/request',function(Request $request){
 
 Route::post('/ForgetPassword',function(Request $request)
 {
-        Mail::to($request->Email)->send(new ForgetPassword(['title'=>'Request to recover password']));
-        return redirect()->back()->with('status','success');
+        $Email = $request->Email;
+        $res = DB::select("select email from custom__auths where email = '$Email'");
+        if(count($res) !=0)
+        {
+                Mail::to($request->Email)->send(new ForgetPassword(['title'=>'Request to reset password','Email'=>$Email]));
+                return redirect()->back()->with('status','success');
+        }
+
+        else
+        {
+                return back()->withErrors(['Mail has not been registered yet !!']);
+        }
+       
 });
 
 Route::get('/FPV',function(){return view('ForgetPasswordView');});
+Route::get('/RP/{id}',function($id){
+        return view('ResetPassword',["Email"=>$id]);
+});
+
+Route::post('/ResetPassword/{id}',function(Request $request,$id)
+{
+        
+        $validated = $request->validate([
+                'password' => 'required|min:6|max:15'
+            ]);
+        if($validated)
+        {
+                $new_password = Hash::make($request->password);
+                $res = DB::update("update custom__auths set password = '$new_password' where email = '$id'");
+                if ($res) 
+                {
+                        return redirect()->back()->with('status','success');
+                }
+        }
+        else
+        {
+                return redirect()->withErrors([$validated]);
+        }
+});

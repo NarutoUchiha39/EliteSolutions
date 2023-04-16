@@ -2,10 +2,17 @@
 
 @section('content')
 <link rel="stylesheet" href="{{asset('/Assets/CSS/Forget.css')}}">
-
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <script>alert(`{{$error}}`)</script>
+    @endforeach
+@endif
 @if (Session::has('status'))
     @php
-        echo "<script>alert('Mail has been sent successfully')</script>" 
+        echo "<script>
+                alert('Mail has been sent successfully')
+                Window.location = '/'
+            </script>"
     @endphp 
 @endif
 
