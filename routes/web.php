@@ -92,13 +92,14 @@ Route::post('/Likes',function(){
        
 });
 
-// Route::get('/Discussion',[Discussion::class,'discuss']);
-// Route::get('/Discussion/{id}',[Discussion::class,'SpecificRoom']);
+Route::get('/Discussion',[Discussion::class,'discuss']);
+Route::get('/Discussion/{id}',[Discussion::class,'SpecificRoom']);
 Route::get('/RequestProblem',[Discussion::class,'CreateRoom'])->name('RequestProblem');
-// Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
-// Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
-// Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
-// Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
+Route::get('/RequestProblem',[Discussion::class,'CreateRoom'])->name('CreateRoom');
+Route::post('/RegisterRoom',[Discussion::class,'RegisterRoom'])->name('RegisterRoom');
+Route::get('/updateRoom/{id}',[Discussion::class,'updateRoom']);
+Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
+Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
 Route::post('/request',function(Request $request){
         if($request->Description){
                 $Description = $request->Description;

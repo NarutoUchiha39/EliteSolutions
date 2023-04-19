@@ -9,7 +9,61 @@ p{
     grid-template-columns: 1fr 3fr;
 }
 
+.sideBar .title
+{
+    color:#6ec0d7;
+}
+.sideBar
+{
+    position: relative;
+    left: 20%;
+}
 .Rooms:hover
 {
     cursor: pointer;
+}
+.Host
+{
+    position: relative;
+
+    color: #68afc6;
+    font-size: 17px;
+    left: -10px;
+}
+.RoomName
+{
+    position: relative;
+    top:-10px;
+    text-decoration: none ;
+    font-size: 20px;
+    
+}
+.Rooms
+{
+    background-color: #3e4055;
+    width: 70%;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+p:hover
+{
+    transition: all;
+    transition-duration: 0.5s;
+    color: #68afc6;
+}
+button
+{
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+    
+}
+.button
+{
+    background-color: #70c6dd;
+    border: 1px solid  #70c6dd;
+    position: relative;
+    left: 60%;
+    border-radius: 10px;
 }
