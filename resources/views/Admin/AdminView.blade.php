@@ -16,14 +16,20 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
     <div class="code" >
         <div class="NormalCode">
             <p class="PreRenderedMarkDown"># Leetcode question name (optional)</p>
-            <textarea onkeyup="check(this)" style="overflow:hidden" class="intution" placeholder="type leetcode question name here" id='text'></textarea>
+            <textarea onkeyup="check(this);textAreaAdjust(this);" style="overflow:hidden" class="intution" placeholder="type leetcode question name here" id='text'></textarea>
+            <p class="PreRenderedMarkDown"># Enter difficulty</p>
+            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden"  placeholder="type difficulty here" class="difficulty"></textarea>
+
+            <p class="PreRenderedMarkDown"># Enter category</p>
+            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden"  placeholder="type category here"  class="category"></textarea>
+
             <p class="PreRenderedMarkDown"># Description</p>
-            <textarea onkeyup="check(this)" style="overflow:hidden" class="code1" placeholder="Type your descrption here (Markdown supported)"></textarea>
+            <textarea onkeyup="check(this);textAreaAdjust(this);" style="overflow:hidden" class="code1" placeholder="Type your descrption here (Markdown supported)"></textarea>
         </div>
         <div></div>
         <div class="MarkDown1">
             <h2 class="Text">Description</h2>
-            <div style="background-color:#1C1A1A;color:white;text-shadow:none;margin-left:15px" id="description">
+                <div style="background-color:#1C1A1A;color:white;text-shadow:none;margin-left:15px" id="description">
             </div>
         </div>
 </div>
@@ -36,12 +42,45 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
     <button class="btn1" onclick="AddQuestion()"><b>Preview question</b> </button>
 
 <div style="margin-top:5px;float:right">
-    <button class="btn1" onclick=""><b>Add question</b> </button>
+    <button class="btn1" onclick="Register()"><b>Add question</b> </button>
 </div>
 <br>
 <br>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.6/axios.min.js" integrity="sha512-06NZg89vaTNvnFgFTqi/dJKFadQ6FIglD6Yg1HHWAUtVFFoXli9BZL4q4EO1UTKpOfCfW5ws2Z6gw49Swsilsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+       async function Register() 
+       {
+            let title = document.querySelector(".Title-text").value;
+            let category = document.querySelector(".category").value;
+            let difficulty = document.querySelector(".difficulty").value;
+            let desc = document.querySelector(".code1").value
+            if(desc.length>0){
+                axios.post('/MarkDown',{markdown:desc}).then((response)=>{          
+                    let description = response
+                    console.log(title,category,difficulty,description);
+                
+            }
+            )
+            }
+
+            else
+            {
+                AddQuestion()
+                setTimeout(() => {
+                    let dex = document.querySelector("#description").innerHTML
+                
+                }, 1000);
+               
+
+            }
+
+        
+       }
+        function textAreaAdjust(element) 
+        {
+            element.style.height = "10vh";
+            element.style.height = (25+element.scrollHeight)+"px";
+        }
         function check(element)
         {
             if(element.id=='text'){
@@ -102,7 +141,14 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
 
                 else
                 {
-                    axios.post('/MarkDown',{markdown:desc}).then((response)=>{document.getElementById("description").innerHTML = response.data})
+                    axios.post('/MarkDown',{markdown:desc}).then((response)=>{
+                        document.getElementById("description").innerHTML = response.data;
+                        let code = document.querySelectorAll("code")
+                        code.forEach(element => {
+                            element.parentNode.style.backgroundColor = "#1C1A1A";
+                            Prism.highlightElement(element);
+                        });
+                    })
                 }
             }
             
@@ -112,4 +158,10 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             }
         }
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-java.min.js" integrity="sha512-BEknrL2CnuVpqnSTwO4a9y9uW5bQ/nabkJeahZ5seRXvmzAMq59Ja9OxZe3lVGrnKEcVlamL4nUBl03wzPM/nA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-python.min.js"></script>
 @endsection
