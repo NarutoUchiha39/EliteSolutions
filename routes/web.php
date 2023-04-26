@@ -11,6 +11,7 @@ use App\Mail\request_problem;
 use Illuminate\Http\Request;
 use App\Mail\ForgetPassword;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Add_Questions;
 
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
@@ -164,3 +165,6 @@ Route::post('/ResetPassword/{id}',function(Request $request,$id)
                 return redirect()->withErrors([$validated]);
         }
 });
+
+Route::get("/QuestionAdd",function(){return view('Admin.AdminView');});
+Route::post("/InsertQuestion",[Add_Questions::class,'Add_Question']);
