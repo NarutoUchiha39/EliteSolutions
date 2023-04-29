@@ -3,28 +3,23 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js" integrity="sha512-NCiXRSV460cHD9ClGDrTbTaw0muWUBf/zB/yLzJavRsPNUl9ODkUVmUHsZtKu17XknhsGlmyVoJxLg/ZQQEeGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="{{asset('/Assets/CSS/SendSolution.css')}}">
-<link
-rel="stylesheet"
-href="{{asset('/Assets/CSS/Prism1.css')}}"
-/>
+
 <div class="title1" style="color:white;">
     <div class="title-text" style="text-align:center;">
-        <textarea  placeholder="Type your title here" class="Title-text"></textarea>
+        <textarea  placeholder="Type your title here" class="Title-text" disabled style="cursor: not-allowed">{{$title}}</textarea>
 
     </div>
 </div>
     <div class="code" >
         <div class="NormalCode">
-            <p class="PreRenderedMarkDown"># Leetcode question name (optional)</p>
-            <textarea onkeyup="check(this);textAreaAdjust(this);" style="overflow:hidden" class="intution" placeholder="type leetcode question name here" id='text'></textarea>
             <p class="PreRenderedMarkDown"># Enter difficulty</p>
-            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden"  placeholder="type difficulty here" class="difficulty"></textarea>
+            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden"  placeholder="type difficulty here" class="difficulty">{{$difficulty}}</textarea>
 
             <p class="PreRenderedMarkDown"># Enter category</p>
-            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden"  placeholder="type category here"  class="category"></textarea>
+            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden"  placeholder="type category here"  class="category">{{$category}}</textarea>
 
             <p class="PreRenderedMarkDown"># Description</p>
-            <textarea onkeyup="check(this);textAreaAdjust(this);" style="overflow:hidden" class="code1" placeholder="Type your descrption here (Markdown supported)"></textarea>
+            <textarea onkeyup="textAreaAdjust(this);" style="overflow:hidden" class="code1" placeholder="Type your descrption here">{{$Description}}</textarea>
         </div>
         <div></div>
         <div class="MarkDown1">
@@ -54,47 +49,17 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             let category = document.querySelector(".category").value;
             let difficulty = document.querySelector(".difficulty").value;
             let desc = document.querySelector(".code1").value
-            console.log(desc);
+            console.log(desc,title,category,difficulty);
             if(desc.length>0){
                 axios.post('/MarkDown',{markdown:desc}).then((response)=>{          
                     desc = response
-                    axios.post("/insert",{title:title,category:category,difficulty:difficulty,desc:desc,type:"code"}).then((response)=>{
-
-                        if(!response.data){
-                            alert("Question added successfully !!");
-                        }
-
-                        else
-                        {
-                            alert("Question exists !!");
-                        }
+                    axios.post("/update",{title:title,category:category,difficulty:difficulty,desc:desc,type:"code"}).then((response)=>{
+                        alert("Question updated successfully !!")
+                        
 
                     })
-                    
             }
             )
-            }
-
-            else
-            {
-                AddQuestion()
-                setTimeout(() => {
-                   desc = document.querySelector("#description").innerHTML
-                   
-                   axios.post("/insert",{title:title,category:category,difficulty:difficulty,desc:desc,type:"markdown"}).then((response)=>
-                   {
-                        if(!response.data)
-                        {
-                            alert("Question added successfully !!")
-                        }
-                        else
-                        {
-                            alert("Question exists !!")
-                        }
-                   })
-                }, 1000);
-               
-
             }
        }
         function textAreaAdjust(element) 
@@ -102,42 +67,42 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             element.style.height = "10vh";
             element.style.height = (25+element.scrollHeight)+"px";
         }
-        function check(element)
-        {
-            if(element.id=='text'){
-                if(element.value.length>0){
-                    let ok = document.querySelector(".code1") 
-                    ok.disabled = true
-                    ok.style.cursor = 'not-allowed'
-                }
-                else
-                {
-                    var ok =  document.querySelector(".code1")
-                    ok.disabled = false
-                    ok.style.cursor = 'default'
-                }
-            }
+        // function check(element)
+        // {
+        //     if(element.id=='text'){
+        //         if(element.value.length>0){
+        //             let ok = document.querySelector(".code1") 
+        //             ok.disabled = true
+        //             ok.style.cursor = 'not-allowed'
+        //         }
+        //         else
+        //         {
+        //             var ok =  document.querySelector(".code1")
+        //             ok.disabled = false
+        //             ok.style.cursor = 'default'
+        //         }
+        //     }
 
-            else
-            {
-                if(element.value.length>0){
-                    document.getElementById("text").disabled = true
-                    document.getElementById("text").style.cursor = 'not-allowed'
+        //     else
+        //     {
+        //         if(element.value.length>0){
+        //             document.getElementById("text").disabled = true
+        //             document.getElementById("text").style.cursor = 'not-allowed'
 
-                }
-                else
-                {
-                    document.getElementById("text").disabled = false
-                    document.getElementById("text").style.cursor = 'default'
+        //         }
+        //         else
+        //         {
+        //             document.getElementById("text").disabled = false
+        //             document.getElementById("text").style.cursor = 'default'
 
-                }
+        //         }
 
-            }
-        }
+        //     }
+        // }
         function AddQuestion() 
         {
             
-            text = document.getElementById("text").value
+            text = ""
             desc = document.querySelector(".code1").value
             if(desc.length>0 || text.length>0)
             {

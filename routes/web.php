@@ -168,3 +168,22 @@ Route::post('/ResetPassword/{id}',function(Request $request,$id)
 
 Route::get("/QuestionAdd",function(){return view('Admin.AdminView');});
 Route::post("/InsertQuestion",[Add_Questions::class,'Add_Question']);
+Route::post("/insert",[Add_Questions::class,'insert_questions']);
+Route::get('/AdminTable',[Add_Questions::class,'Admin_View']);
+Route::post('/Deleteqts',function(Request $request)
+{
+        $name = request('question');
+        DB::delete("delete from questions where title = '$name'");
+        return 'true';
+});
+
+Route::get('/change/{id}',function($id)
+{
+        $res = DB::select("select * from questions where title = '$id'");
+        $title = $res[0]->title;
+        $category = $res[0]->category;
+        $difficulty = $res[0]->difficulty;
+        $Description = $res[0]->description;
+        return view('Admin.change',["title"=>$title,"category"=>$category,"difficulty"=>$difficulty,"Description"=>$Description]);
+});
+Route::post('/update',[Add_Questions::class,'update_question']);
