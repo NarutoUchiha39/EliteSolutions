@@ -84,6 +84,15 @@ class Add_Questions extends Controller
         if(count($res)==0)
         { 
             DB::insert("insert into questions(DESCRIPTION,title,category,difficulty) values('$body','$title','$category','$difficulty')");
+            $title = explode(" ",$title);
+            $newtitle = "";
+            foreach($title as $char)
+            {
+                $newtitle = $newtitle.$char;
+            }
+            
+            $handle = fopen("E:\Desktop\Elite Solutions\practice\storage\\framework\Solutions\\$newtitle"."python.txt","w");
+            fclose($handle);
             return 'false';
         }
         else
