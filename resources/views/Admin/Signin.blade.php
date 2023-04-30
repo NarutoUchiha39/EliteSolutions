@@ -18,11 +18,8 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img class="backImg" src="https://cdn.pixabay.com/photo/2018/01/31/07/36/sunset-3120484_960_720.jpg" alt="">
-        <div class="text">
-          <span class="text-1">Helping you grow<br> stronger each day</span>
-          <span class="text-2">Let's code together</span>
-        </div>
+        <img class="backImg" src="https://media.istockphoto.com/id/1224614437/vector/woman-with-headphone-and-computer-call-center-customer-service-and-support-flat-vector.jpg?s=612x612&w=0&k=20&c=hVhQcGWrdqkYpV6RfUQmRnRMWKKNnJNzzRV9i40vNFw=" alt="">
+
       </div>
       
     </div>
@@ -32,7 +29,7 @@
         <div class="signup-form" >
          
           <div class="title">Log in</div>
-          <form action="{{route('Login')}}" method="post">
+          <form action="{{route('LoginAdmin')}}" method="post">
             @csrf
             <div class="input-boxes">
               <div class="input-box">
@@ -43,11 +40,11 @@
                 <i class="fas fa-lock"></i>
                 <input name="password" type="password" placeholder="Enter your password" required>
               </div>
-              <div class="text"><a href="/FPV">Forgot password?</a></div>
+              
               <div class="button input-box">
                 <input type="submit" value="Sumbit">
               </div>
-              <div class="text sign-up-text">Don't have an account? <a href="/signup" style="color: blue"> Sign Up now</a></div>
+             
             </div>
         </form>
         </div>

@@ -165,11 +165,10 @@ Route::post('/ResetPassword/{id}',function(Request $request,$id)
                 return redirect()->withErrors([$validated]);
         }
 });
-
+Route::get('/AdminView',function(){return view('Admin.Login');});
 Route::get("/QuestionAdd",function(){return view('Admin.AdminView');});
 Route::post("/InsertQuestion",[Add_Questions::class,'Add_Question']);
 Route::post("/insert",[Add_Questions::class,'insert_questions']);
-Route::get('/AdminTable',[Add_Questions::class,'Admin_View']);
 Route::post('/Deleteqts',function(Request $request)
 {
         $name = request('question');
@@ -187,3 +186,18 @@ Route::get('/change/{id}',function($id)
         return view('Admin.change',["title"=>$title,"category"=>$category,"difficulty"=>$difficulty,"Description"=>$Description]);
 });
 Route::post('/update',[Add_Questions::class,'update_question']);
+Route::post('/QuestionsTable',function(Request $request)
+{
+        $html = new Add_Questions();
+        return $html->Admin_View();
+});
+
+Route::post('/Users',function(Request $request)
+{
+        $users = DB::select("select name,email,solved from custom__auths");
+        $total = DB::select("select count(*) as cnt from questions")[0];
+        return view('Admin.Users',["users"=>$users,"total"=>$total])->render();
+});
+
+Route::get('/Admin123Login',function(){return view('Admin.signin');});
+Route::post('/LoginAdmin',[Add_Questions::class,'login'])->name('LoginAdmin');

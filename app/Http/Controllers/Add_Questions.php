@@ -3,14 +3,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function PHPSTORM_META\type;
 use function Symfony\Component\VarDumper\Dumper\esc;
 
 class Add_Questions extends Controller
 {
+    public function login(Request $request)
+    {
+        $name = $request->email;
+        $password = $request->password;
+        $res = DB::select("select * from admin where email_id = '$name' and password='$password'");
+        
+
+        if(count($res)==0)
+        {
+            return back()->withErrors(['Incorrect email or password try again !!']);
+        }
+
+        else
+        {
+            return redirect('/AdminView');
+        }
+    }
     public function Admin_View()
     {
-        $Questions = DB::select('select title from questions');
-        return view('Admin.AdminTable',['Questions'=>$Questions]);
+        $Questions = DB::select('select title,likes,dislikes from questions');
+        return view('Admin.AdminTable',['Questions'=>$Questions])->render();
     }
     public function Add_Question(Request $request)
     {
@@ -56,19 +74,12 @@ class Add_Questions extends Controller
         $difficulty = $request->difficulty;
         $category  = $request->category;
         
-        if($type!='markdown')
-        {
-            $body = nl2br($request->desc['data']);
-        }
-
-        else
-        {
-            
-            $body = substr($request->desc,strpos($request->desc,"<p>"));
-        }
-
         
-
+        if($type=="markdown")
+        {
+            $body = str_replace(array("'"), '', $request->desc["data"]); //$request->desc["data"]
+        }
+        else{$body=$request->desc;};
         $res = DB::select("select title from questions where title ='$title'");
         if(count($res)==0)
         { 
@@ -88,7 +99,7 @@ class Add_Questions extends Controller
         $difficulty = $request->difficulty;
         $category  = $request->category;
 
-        $description = nl2br($request->desc["data"]);
+        $description = str_replace(array("'"), '', $request->desc["data"]);
         $title = $request->title;
         
        

@@ -10,7 +10,6 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
 <div class="title1" style="color:white;">
     <div class="title-text" style="text-align:center;">
         <textarea  placeholder="Type your title here" class="Title-text"></textarea>
-
     </div>
 </div>
     <div class="code" >
@@ -54,12 +53,11 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             let category = document.querySelector(".category").value;
             let difficulty = document.querySelector(".difficulty").value;
             let desc = document.querySelector(".code1").value
-            console.log(desc);
             if(desc.length>0){
                 axios.post('/MarkDown',{markdown:desc}).then((response)=>{          
                     desc = response
-                    axios.post("/insert",{title:title,category:category,difficulty:difficulty,desc:desc,type:"code"}).then((response)=>{
-
+                    axios.post("/insert",{title:title,category:category,difficulty:difficulty,desc:desc,type:"markdown"}).then((response)=>{
+                        console.log(response);
                         if(!response.data){
                             alert("Question added successfully !!");
                         }
@@ -81,7 +79,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
                 setTimeout(() => {
                    desc = document.querySelector("#description").innerHTML
                    
-                   axios.post("/insert",{title:title,category:category,difficulty:difficulty,desc:desc,type:"markdown"}).then((response)=>
+                   axios.post("/insert",{title:title,category:category,difficulty:difficulty,desc:desc,type:"leetcode"}).then((response)=>
                    {
                         if(!response.data)
                         {
@@ -152,7 +150,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
                         else
                         {
                             let element  = document.getElementById("description")
-                            FinalHTML = response.data.data.question.questionId +'&nbsp'+ '&nbsp'+ response.data.data.question.title + response.data.data.question.content
+                            FinalHTML = response.data.data.question.content
                             element.innerHTML = FinalHTML
                         }
 
