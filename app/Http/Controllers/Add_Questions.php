@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 use function PHPSTORM_META\type;
 use function Symfony\Component\VarDumper\Dumper\esc;
@@ -22,6 +23,7 @@ class Add_Questions extends Controller
 
         else
         {
+            Session::put('Admin','Admin');
             return redirect('/AdminView');
         }
     }

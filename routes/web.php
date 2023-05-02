@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use App\Mail\ForgetPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Add_Questions;
-
+// Dependency injection
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
 Route::get('/signup',[UserAuth::class,'Register']);

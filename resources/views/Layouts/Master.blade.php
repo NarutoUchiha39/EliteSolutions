@@ -32,7 +32,7 @@
                 </ul>
             </div>
         </li>
-        @if (Session::has('loginId'))
+        @if (Session::has('loginId')|| Session::has('Admin'))
             <form action="{{route('Logout')}}" method="post">
                 @csrf
             <input type="submit" value="Logout" class="inp">
