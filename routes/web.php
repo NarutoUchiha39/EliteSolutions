@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 use App\Mail\ForgetPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Add_Questions;
+
+use function Symfony\Component\VarDumper\Dumper\esc;
+
 // Dependency injection
 Route::get('/', [UserController::class,'Home']);
 Route::post('Logout',[UserAuth::class,'Logout'])->name('Logout');
@@ -103,7 +106,7 @@ Route::post('/update/{id}',[Discussion::class,'update'])->name('update');
 Route::get('/deleteRoom/{id}',[Discussion::class,'deleteRoom']);
 Route::post('/request',function(Request $request){
         if($request->Description){
-                $Description = $request->Description;
+                $Description = esc($request->Description);
         }
 
         else{
@@ -118,7 +121,10 @@ Route::post('/request',function(Request $request){
         {
                 $url = '';
         }
-
+        $email = Session::get('Email');
+        $title = $request->Name;
+        $category = $request->category;
+        DB::insert("insert  into sentquestions values('$email','$title','$category',NULL,' $Description','not approved');");
         Mail::to('prolaraveldevelopers@gmail.com')->send(new request_problem($url,$Description,$request->Name,$request->category));
         return redirect()->back()->with('status','success');
 })->name('request');
@@ -201,3 +207,16 @@ Route::post('/Users',function(Request $request)
 
 Route::get('/Admin123Login',function(){return view('Admin.signin');});
 Route::post('/LoginAdmin',[Add_Questions::class,'login'])->name('LoginAdmin');
+Route::get('/trackQuestions',[Add_Questions::class,'track'])->name('track');
+Route::post('/sentquestions',function(Request $request)
+{
+        $Question = DB::select('select * from sentquestions');
+        return view('Admin.sentquestions',["Question"=>$Question])->render();
+});
+Route::get('/changeStatus/{id}',function($id)
+{
+        $title = explode('&',$id)[0];
+        $email =  explode('&',$id)[1];
+        $res = DB::select("select * from sentquestions where title='$title'");
+        return view('Admin.ChangeStatus',["res"=>$res,"email"=>$email]);
+});

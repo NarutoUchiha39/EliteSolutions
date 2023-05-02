@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -113,8 +115,34 @@ class Add_Questions extends Controller
         $description = str_replace(array("'"), '', $request->desc["data"]);
         $title = $request->title;
         
-       
-        DB::update("update questions set category = '$category', difficulty = '$difficulty', description = '$description' where title='$title'");
+       if(strlen($request->type)>0 && $request->type == 'approve')
+       {
+            $ntitle = explode(" ",$title);
+            $newtitle = "";
+            $Email = $request->email;
+            foreach($ntitle as $char)
+            {
+                $newtitle = $newtitle.$char;
+            }
+            
+            $handle = fopen("E:\Desktop\Elite Solutions\practice\storage\\framework\Solutions\\$newtitle"."python.txt","w");
+            fclose($handle);
+            $description = nl2br(str_replace(array("'"), '', $request->desc["data"]));
+            try
+            {
+                DB::insert("insert into questions(title,category,difficulty,description) values('$title','$category','$difficulty','$description')");
+                DB::update("update sentquestions set status='approved' where email='$Email' and title='$title'");
+                return 'success';
+            }
+
+            catch(Exception $E)
+            {
+                return $Email;
+            }
+
+        }
+       else{
+        DB::update("update questions set category = '$category', difficulty = '$difficulty', description = '$description' where title='$title'");}
        
     }
 }

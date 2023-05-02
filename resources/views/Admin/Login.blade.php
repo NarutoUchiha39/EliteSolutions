@@ -101,6 +101,7 @@
         <ul>
           <li style="cursor: pointer" onclick="QuestionsTable()">Questions</li>
           <li style="cursor: pointer" onclick="ShowUsers()">Users</li>
+          <li style="cursor: pointer" onclick="SentQuestions()">User sent Questions</li>
 
         </ul>
       </aside>
@@ -147,6 +148,14 @@
     function ShowUsers()
     {
         axios.post('/Users',{val:true}).then((response)=>
+        {
+            document.querySelector("#dynamic-content").innerHTML = response.data
+        })
+    }
+
+    function SentQuestions()
+    {
+      axios.post('/sentquestions',{val:true}).then((response)=>
         {
             document.querySelector("#dynamic-content").innerHTML = response.data
         })
