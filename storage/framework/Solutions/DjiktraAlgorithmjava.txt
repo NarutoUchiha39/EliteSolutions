@@ -52,7 +52,7 @@ class Solution
             visited.add(point);
             for (int i = 0; i < V; i++) {
                 if(graph[point][i]!=Integer.MAX_VALUE && !visited.contains(i)){
-                    if(cost + graph[point][i]<dist[i]){
+                    if(cost + graph[point][i] &lt dist[i]){
                         dist[i] = cost + graph[point][i];
                         heap.offer(new Integer[]{cost + graph[point][i],i});
                     }

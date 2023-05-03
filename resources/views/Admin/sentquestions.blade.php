@@ -9,7 +9,12 @@
       <tr class="passive-row" >
           <td style="padding:10px">{{$Qts->title}}</td> 
           <td>{{$Qts->email}}</td>
-          <td style="cursor: pointer;" onclick="window.location='/changeStatus/{{$Qts->title}}&{{$Qts->email}}'">{{$Qts->status}}</td>
+          @if ($Qts->status=='approved')
+                <td>{{$Qts->status}}</td>
+                @else
+                <td style="cursor: pointer;" onclick="window.location='/changeStatus/{{$Qts->title}}&{{$Qts->email}}'">{{$Qts->status}}</td>
+          @endif
+          
       </tr>
       @endforeach
       

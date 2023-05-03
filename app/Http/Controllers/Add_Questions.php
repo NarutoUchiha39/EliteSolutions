@@ -137,7 +137,7 @@ class Add_Questions extends Controller
 
             catch(Exception $E)
             {
-                return $Email;
+                return 'error';
             }
 
         }
