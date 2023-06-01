@@ -24,11 +24,12 @@ Route::get('/ContactUs',[UserController::class,'ContactUs']);
 Route::post('UserAuth',[UserAuth::class,'user_register'])->name('UserAuth');
 Route::post('Mail',[UserController::class,'Mail'])->name('Mail');
 Route::post('Login',[UserAuth::class,'user_Login'])->name('Login');
+// Send Solution
 Route::get('/SendSolution',[UserController::class,'SendSolution']);
 Route::post('/MarkDown',function(){
         $markdown = request('markdown');
         return \Illuminate\Support\Str::of($markdown)->markdown();
-        
+
 });
 Route::post('/Details',function(){
 
@@ -36,7 +37,7 @@ Route::post('/Details',function(){
         $code_decode =  $obj['code'];
         $intution_decode = $obj['intution'];
         Mail::to('prolaraveldevelopers@gmail.com')->send(new SendSolution($code_decode,strip_tags(\Illuminate\Support\Str::of($intution_decode)->markdown())));
-        
+
 });
 Route::get('/solution',[UserController::class,'solution']);
 
@@ -50,16 +51,16 @@ Route::get('/SolutionPage/{id}',function($id){
         if(Session::has('loginId')){
                 $name = Session::get('Email');
                 $title = $id;
-                
+
                 if(count(DB::select("select user_email from custom__auth_questions where exists(select user_email from custom__auth_questions where user_email='$name' and question_name = '$title')"))==0)
                 {
                         DB::update("update  custom__auths set solved = solved+1 where email='$name'");
                         DB::insert("insert into custom__auth_questions(user_email,question_name) values('$name','$title')");
-                        
+
                 }
                 $likes=DB::select("select liked,disliked from custom__auth_questions where user_email='$name' and question_name='$title'");
-              
-          
+
+
         }
         $var = ["Data"=>DB::select("select DESCRIPTION from questions where title='$id' "),"title"=>$id,"popularity"=>DB::select("select likes,dislikes from questions where title='$id'"),"Difficulty"=>DB::select("select difficulty from questions where title='$id' "),"likes"=>$likes,"language"=>$language];
         DB::disconnect('mysql');
@@ -83,7 +84,7 @@ Route::post('/Likes',function(){
 
                 if($obj['data']=='DisLike')
                 {
-                        
+
                         if(DB::select("select disliked from custom__auth_questions where user_email='$mail' and question_name='$title'")[0]->disliked==0){
                                 DB::update("update questions set dislikes=dislikes+1 where title='$title'");
                                 DB::update("update custom__auth_questions set disliked=1 where user_email='$mail' and question_name='$title'");
@@ -91,9 +92,9 @@ Route::post('/Likes',function(){
                                 return 'true';}
                 }
         }
-       
+
         return 'false';
-       
+
 });
 
 Route::get('/Discussion',[Discussion::class,'discuss']);
@@ -143,7 +144,7 @@ Route::post('/ForgetPassword',function(Request $request)
         {
                 return back()->withErrors(['Mail has not been registered yet !!']);
         }
-       
+
 });
 
 Route::get('/FPV',function(){return view('ForgetPasswordView');});
@@ -153,7 +154,7 @@ Route::get('/RP/{id}',function($id){
 
 Route::post('/ResetPassword/{id}',function(Request $request,$id)
 {
-        
+
         $validated = $request->validate([
                 'password' => 'required|min:6|max:15'
             ]);
@@ -161,7 +162,7 @@ Route::post('/ResetPassword/{id}',function(Request $request,$id)
         {
                 $new_password = Hash::make($request->password);
                 $res = DB::update("update custom__auths set password = '$new_password' where email = '$id'");
-                if ($res) 
+                if ($res)
                 {
                         return redirect()->back()->with('status','success');
                 }

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 class SendSolution extends Mailable
 {
     use Queueable, SerializesModels;
-    
+
     /**
      * Create a new message instance.
      *
