@@ -17,7 +17,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             <p class="PreRenderedMarkDown"># intution</p>
             <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" class="intution" placeholder="Type your intuition here"></textarea>
             <p class="PreRenderedMarkDown"># Used Language</p>
-            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" class="Language" placeholder="Languages supported: java, C++, Python"></textarea>
+            <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" class="Language" placeholder="Languages supported: java, Python"></textarea>
             <p class="PreRenderedMarkDown"># code</p>
             <textarea onkeyup="textAreaAdjust(this)" style="overflow:hidden" class="code1" placeholder="Type your code here"></textarea>
         </div>
@@ -28,7 +28,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             <h1 class="Text">Code</h1>
             <pre style="background-color:#1C1A1A;color:white;text-shadow:none">
                 <code id="Tf" class="language-python">
-                    
+
                 </code>
             </pre>
         </div>
@@ -54,7 +54,7 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             window.alert("Solution sent successfully !!");
         })
 
-        
+
     }
     function textAreaAdjust(element) {
     element.style.height = "10vh";
@@ -68,8 +68,8 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
         .then(response=>{
             document.querySelector(".intutionMd").innerHTML=response.data;
         })
-        
-    
+
+
         markdown = document.getElementsByClassName("Language")[0].value;
         var block = document.getElementById('Tf');
         block.classList.remove('language-python')
@@ -79,14 +79,14 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             block = document.getElementById('Tf')
             block.innerHTML = markdown
             Prism.highlightElement(block);
-        
+
     }
-    
+
     let init=()=>{
         setInterval(convert, 10000);
     }
     init()
-    
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"></script>
 
