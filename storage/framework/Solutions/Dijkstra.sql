@@ -20,7 +20,7 @@ insert INTO questions(DESCRIPTION,title,category,difficulty) values(
     Your Task:
     You don't need to read input or print anything. Your task is to complete the function dijkstra()  which takes the number of vertices V and an adjacency list adj as input parameters and Source vertex S returns a list of integers, where ith integer denotes the shortest distance of the ith node from the Source node. Here adj[i] contains a list of lists containing two integers where the first integer j denotes that there is an edge between i and j and the second integer w denotes that the weight between edge i and j is w.
     ",
-    "Djiktra's Algorithm",
+    "Djiktra Algorithm",
     "Graph",
     "Easy"
 )

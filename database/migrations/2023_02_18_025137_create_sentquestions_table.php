@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('sentquestions', function (Blueprint $table) {
             $table->id();
             $table->string("title")->unique()->index();
             $table->string('url');

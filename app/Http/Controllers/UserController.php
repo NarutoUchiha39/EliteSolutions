@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUs;
 use App\Mail\SendSolution;
 use Illuminate\Support\Facades\Session as session;
-use App\Models\questions;
+use App\Models\Questions;
 use App\Models\custom__auth_questions;
 use Illuminate\Support\Facades\DB;
 

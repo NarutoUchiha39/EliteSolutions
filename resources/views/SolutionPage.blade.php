@@ -62,14 +62,14 @@ href="{{asset('/Assets/CSS/Prism1.css')}}"
             
             
             <div class="content">
-                @if ($Data[0]->DESCRIPTION[0]!="<")
+                @if ($Data[0]->description[0]!="<")
                     @php
-                        echo nl2br($Data[0]->DESCRIPTION);
+                        echo nl2br($Data[0]->description);
                     @endphp
                 @else
                     @foreach ($Data as $d)
                         
-                        {!! $d->DESCRIPTION !!}
+                        {!! $d->description !!}
                     @endforeach
                 @endif
                 
