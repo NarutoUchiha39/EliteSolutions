@@ -13,15 +13,30 @@ Well then what are you waiting for? Hope onto our website and suggest your *Blaz
 
 ### 💭 *All that is fine but some problems that i am stuck with do not have solutions on your website* 😭
 
-We are sorry for the inconvinience but you can send us your problem statement right from the website and we will review it and add it to our website as soon as possible
+We are sorry for the inconvenience but you can send us your problem statement right from the website and we will review it and add it to our website as soon as possible
 
 ### 💭 *But Bro the solution on your website is in python i know a solution in C++ that will give some valuable tips to newcomers to handle those pesky pinters* 🧑‍🏫
 
-We appriciate your thiughtfullness our website supports providing solutions in multiple languages(Right now its C++,python and Java) so you can write your solution in your preferred language and send us your solutions
+We appriciate your thoughtfulness our website supports providing solutions in multiple languages(Right now its C++,python and Java) so you can write your solution in your preferred language and send us your solutions
 
 Oh and did i mention you can use HTML or to edit your solution and make it look pretty along with having syntax highlighting? I know pretty neat
 
 ***Along with the above features we also provide an admin panel for the administrators to view the popularity of each question along with approve user sent solutions and add Requested questions. All of these in a simple and Intuitive UI. Well admins need to have their style too*** 😎
 
-So this is all about Elite Solutions. A community driven platform to get in depth explaination to leetcode problems. Think you got good explaination with *blazingly fast* code well then hope we are eager to have you on board 
+So this is all about Elite Solutions. A community driven platform to get in depth explaination to leetcode problems. Think you got good explaination with *blazingly fast* code well then hope on. We are eager to have you on board 
+
+### 💭 *Bro your website is cool will you tell us more about the tech stack. I too wanna build a cool website with lots of features*
+
+Well then buckle up your seatbelts and lets right dive into the technical nitty gritty. Shall we?
+
+### <div align="center"> Made with ❤️ Using</strong> </div> 
+
+<div >
+  <div style="display: flex;height:100px;justify-content:center;">
+    <img src="ReadmeImages/Laravel.svg" style="width:30%;margin-right:20px"/>
+    <img src="ReadmeImages/Supabase.png" style="width:20%;" />
+  </div>
+</div>
+
+
 
