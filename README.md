@@ -31,12 +31,10 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 
 ### <div align="center"> Made with ❤️ Using</strong> </div> 
 
-<div >
-  <div style="display: flex;height:100px;justify-content:center;">
-    <img src="ReadmeImages/Laravel.svg" style="width:30%;margin-right:20px"/>
-    <img src="ReadmeImages/Supabase.png" style="width:20%;" />
-  </div>
-</div>
+<p align="center">
+    <img src="ReadmeImages/Laravel.svg" height=100px style="margin-right:20px">
+    <img src="ReadmeImages/Supabase.png" height=100px>
+</p>
 
 
 
