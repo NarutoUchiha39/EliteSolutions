@@ -36,6 +36,32 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
     <img src="ReadmeImages/Supabase.png" height=100px>
 </p>
 
-[HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/04a259b0-2364-49bb-a37e-470974a32a2a)
+* Laravel makes it easier to organize your routes using controllers and even organizing your controllers into multiple smaller controller files to keep things organized
 
+* Laravel uses Eloquent ORM that makes it fun to work with databases. Querying databases has never been this easy and simple to use
+
+* Dont like ORM? Well Laravel gives you the ability to ditch the ORM and raw dog your SQL so that you can write custom and complex queries to suite your needs
+
+* Laravel's Templating Engine, Blade, is easy and simple to use yet very powerful. It combines the power of PHP with the ability to use Laravel variables inside the template. The syntax of the blade templates is exteremely simple and and easy. For instance wanna write php in midst of HTML? Well just write ```@php {{Your amazing code}} @endphp```. See? Simple and easy to use
+
+* Want to make Complex layouts? Well blade helps you with that too. Layouts can be organized and nested to give you the control you need over the layout
+
+* Want to make your Auth secure? Well Laravel helps you in here. You get a default users model with features like remembering the users along with a robust middleware support to customize your auth process as you want. Laravel also provides you with ```passport``` so that you can setup OAUTH2 easily
+
+* In terms of database setup and mailing its quite simple. Just put your credentitals in the ```.env``` file and your good to go. Pretty neat. For mailing you have the option to choose multiple providers. The layout of mailing can be customized according to your liking using blade. There can be markdown or HTML inside the mail. Honestly the default template of mail itself is very good
+
+* In this mordern era want to build microservices? Dont worry laravel has you covered. Just make controllers and setup database and your good to go. Laravel also integrates with ```React``` Seamlessly.
+
+* Want to use GraphQL? Laravel has something for you too. Laravel Lighthouse makes it easy for you to write and test GraphQL based APIs. It even provides you with its very own playground, where you can test your own GraphQL queries easily with intuitive UI
+
+* Supabase provides good amount of free database storage with inituitive simple and powerful UI. Supbase uses PostgreSQL databases and gives  you its own SQL editor where you can test your queries before putting them in your application.
+
+
+<div align="center">
+<strong>Screenshots of the website</strong> 
+</div>
+
+* Home Screen :
+
+[HomeScreen](ReadmeImages/Screencast_20240601_100341.webm)
 
