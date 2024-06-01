@@ -36,6 +36,6 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
     <img src="ReadmeImages/Supabase.png" height=100px>
 </p>
 
-![download](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/1b9e9db0-631d-4554-a3fe-1d00dc41c22c)
+[HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/04a259b0-2364-49bb-a37e-470974a32a2a)
 
 
