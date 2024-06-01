@@ -62,6 +62,39 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 </div>
 
 * Home Screen :
+[HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/1f5eff97-6336-44c1-a1a6-3475c1ad0eaf)
 
-[HomeScreen](ReadmeImages/Screencast_20240601_100341.webm)
+
+* Login Screen :
+![LoginScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/60b7f5f4-771f-488a-bfb2-331a49d7baf7)
+
+* Register Screen :
+![RegisterScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/831fd6cf-ccc9-414d-94ad-61d997204f4a)
+
+* Solutions Table :
+![SolutionTable](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/041653ae-98e5-4921-bab6-83aeb083213f)
+
+* Soltion page in python :
+  
+[PyhtonSolution](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/74e0bb85-a7de-4094-976a-03172a8a3c66)
+
+* Solution page in Java :
+[JavaSolution](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/5d9ffada-3413-4332-b4e5-185e06c7f01d)
+
+* Contact Us page:
+![ContactUs](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/e8951fce-f6cc-4226-8b6f-a362d988ac47)
+
+* Send Solution page :
+[SendSolution](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/83f58c60-66d1-4658-8012-9e53c8d6096d)
+
+* Request Problem Page : (If your requesting Leetcode problem then no need to provide description)
+[Screencast_20240601_104545.webm](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/3a8543d1-d9dd-4e61-a27f-f8024aedf23c)
+
+
+
+
+
+
+
+
 
