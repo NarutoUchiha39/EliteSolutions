@@ -62,7 +62,8 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 </div>
 
 * Home Screen :
-![HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/1f5eff97-6336-44c1-a1a6-3475c1ad0eaf)
+
+[HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/1f5eff97-6336-44c1-a1a6-3475c1ad0eaf)
 
 * Login Screen :
 ![LoginScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/60b7f5f4-771f-488a-bfb2-331a49d7baf7)
@@ -78,7 +79,8 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 [PyhtonSolution](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/74e0bb85-a7de-4094-976a-03172a8a3c66)
 
 * Solution page in Java :
-[JavaSolution](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/5d9ffada-3413-4332-b4e5-185e06c7f01d)
+  
+[JavaSolution.webm](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/5391905a-cf75-4209-a97b-8983ddd0c22a)
 
 * Contact Us page:
 ![ContactUs](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/e8951fce-f6cc-4226-8b6f-a362d988ac47)
@@ -87,7 +89,26 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 [SendSolution](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/83f58c60-66d1-4658-8012-9e53c8d6096d)
 
 * Request Problem Page : (If your requesting Leetcode problem then no need to provide description)
+
 [Screencast_20240601_104545.webm](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/3a8543d1-d9dd-4e61-a27f-f8024aedf23c)
+
+* Admin Panel :
+![AdminPanel](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/73681f3f-28c1-43c0-90ec-86e52ad73477)
+
+* See and edit questions :
+![ViewQuestion](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/2bfaa335-0d4c-4763-8b05-08fbb08a6c4b)
+
+* Add and Edit Questions have same UI as send solution with full support of HTML and markdown
+* Check number of questions solved by each user :
+![CheckProgress](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/21120457-402e-42f8-b889-9bd0b5b9daa0)
+
+
+### <div align="center">**This is all for now thank you for giving your time to read the long readme Jai Hind** 🇮🇳</div>
+
+
+  
+
+
 
 
 
