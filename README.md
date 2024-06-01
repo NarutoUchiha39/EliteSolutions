@@ -62,8 +62,7 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 </div>
 
 * Home Screen :
-[HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/1f5eff97-6336-44c1-a1a6-3475c1ad0eaf)
-
+![HomeScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/1f5eff97-6336-44c1-a1a6-3475c1ad0eaf)
 
 * Login Screen :
 ![LoginScreen](https://github.com/NarutoUchiha39/EliteSolutions/assets/104666748/60b7f5f4-771f-488a-bfb2-331a49d7baf7)
