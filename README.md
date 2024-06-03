@@ -34,6 +34,7 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 <p align="center">
     <img src="ReadmeImages/Laravel.svg" height=100px style="margin-right:20px">
     <img src="ReadmeImages/Supabase.png" height=100px>
+    <img src="https://images.viblo.asia/feecc775-82fb-4bec-9e83-0239e45d8b1b.jpg" height=100px>
 </p>
 
 * Laravel makes it easier to organize your routes using controllers and even organizing your controllers into multiple smaller controller files to keep things organized
@@ -56,6 +57,159 @@ Well then buckle up your seatbelts and lets right dive into the technical nitty 
 
 * Supabase provides good amount of free database storage with inituitive simple and powerful UI. Supbase uses PostgreSQL databases and gives  you its own SQL editor where you can test your queries before putting them in your application.
 
+
+* Nginx Configurations :
+To make the laravel application run on Nginx on a windows device the following steps were followed:
+1. Download nginx from the official website
+2. In your PHP installation folder an exe file with name ```php-cgi.exe``` will be present. That is our cgi gateway to which nginx will pass our php files to be executed and shown. Linux equivalent is php-fpm (fast process manager)
+3. Go to the ```nginx.conf``` file and place the following code in your conf file
+```
+
+#user  nobody;
+worker_processes  1;
+
+error_log /Complete Path/to/logs file in NGINX folder;
+error_log  /Complete Path/to/logs file in NGINX folder/error.log  notice;
+error_log  /Complete Path/to/logs file in NGINX folders/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /Complete Path/to/logs file in NGINX folder/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+         listen 80;
+    listen [::]:80;
+    server_name localhost;
+    root /Complete Path to Elite Solutions/public;
+ 
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+ 
+    index index.php;
+ 
+    charset utf-8;
+ 
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+ 
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+ 
+    error_page 404 /index.php;
+ 
+    location ~ \.php$ { # We will get back on this later
+        fastcgi_pass 127.0.0.1:9123;
+        fastcgi_param   SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+	fastcgi_index  index.php;
+        include fastcgi_params;
+    }
+ 
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
+
+```
+4. You must have noticed we are passing our php file to ```127.0.0.1:9000```. This is where our PHP cgi will be accepting php files from Nginx to process
+5. Now to set up php-cgi create the following .bat file :
+```
+
+@ECHO OFF
+ECHO Starting PHP FastCGI...
+set PATH=C:\Users\NarutoUchiha39\Downloads\php-8.3.7-Win32-vs16-x64;%PATH%
+C:\Users\NarutoUchiha39\Downloads\php-8.3.7-Win32-vs16-x64\php-cgi.exe -b 127.0.0.1:9123-c C:\Users\NarutoUchiha39\Downloads\php-8.3.7-Win32-vs16-x64\php.ini
+
+```
+
+Run the bat file. Replace the paths with your installed paths. This will set up a fast cgi server at port 9000
+
+***Note: For my case the path were not being followed and i had to figure out by error messages where to put the file (Prolly a skill issue)***
+
+6. We are all set just go to localhost:80 and you will see the website in full glory served through Nginx 
 
 <div align="center">
 <strong>Screenshots of the website</strong> 
